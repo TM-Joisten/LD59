@@ -1,28 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cslhofevswf0j"]
 
 [ext_resource type="Texture2D" uid="uid://d3t6h8j2gmq3h" path="res://icon.svg" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://satellite.gd" id="2_h2yge"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
-radius = 117.28
+[ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c5pj0ypkhilat" path="res://scene/satellite.tscn" id="2_1bvp3"]
 
 [node name="main" type="Node2D"]
 
-[node name="Signal" type="Node2D" parent="."]
-position = Vector2(73, 26)
+[node name="Signal" parent="." instance=ExtResource("1_h2yge")]
+position = Vector2(537, 273)
 
-[node name="Satellite" type="Node2D" parent="."]
+[node name="Satellite" parent="." instance=ExtResource("2_1bvp3")]
 position = Vector2(669, 138)
-script = ExtResource("2_h2yge")
-
-[node name="Sprite2D" type="Sprite2D" parent="Satellite"]
-position = Vector2(-4, -3)
-texture = ExtResource("1_0xm2m")
-
-[node name="Area2D" type="Area2D" parent="Satellite"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Satellite/Area2D"]
-shape = SubResource("CircleShape2D_0xm2m")
+R = 35
 
 [node name="Sender" type="Node2D" parent="."]
 position = Vector2(51, 3)
@@ -37,3 +26,7 @@ position = Vector2(543, 389)
 position = Vector2(1, -1)
 scale = Vector2(1.78125, 1.78125)
 texture = ExtResource("1_0xm2m")
+
+[node name="Satellite2" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(805, 302)
+R = 410
