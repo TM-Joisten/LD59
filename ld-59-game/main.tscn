@@ -30,7 +30,8 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 81.00617
 
 [node name="main" type="Node2D"]
 
@@ -52,7 +53,7 @@ texture_filter = 1
 position = Vector2(19.999998, 20.999998)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5vw27")
-frame_progress = 0.15569487
+frame_progress = 0.08313293
 
 [node name="Sender" type="Node2D" parent="."]
 position = Vector2(51, 3)
@@ -65,8 +66,8 @@ script = ExtResource("3_1bvp3")
 position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receiver/Area2D"]
-position = Vector2(-0.5, 1)
-shape = SubResource("RectangleShape2D_1bvp3")
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Receiver"]
 position = Vector2(0.99999714, -9.536743e-07)
@@ -74,9 +75,9 @@ scale = Vector2(0.41796884, 0.42312896)
 texture = ExtResource("1_0xm2m")
 
 [node name="Planet" type="Node2D" parent="."]
-position = Vector2(538, 459)
+position = Vector2(494, 330)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
-position = Vector2(2.9999847, -2.0000153)
-scale = Vector2(1.9160163, 1.9160163)
+position = Vector2(1.0000134, -5.722046e-06)
+scale = Vector2(1.7001956, 1.4736332)
 texture = ExtResource("1_0xm2m")
