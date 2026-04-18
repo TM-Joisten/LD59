@@ -9,9 +9,14 @@ var area_array = []
 
 @onready var sat = $root/main/Satellite as Node2D
 @export var cooldown: float = 1
+@export var station = Node2D
+
+func startpoint():
+	self.position = station.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	startpoint()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

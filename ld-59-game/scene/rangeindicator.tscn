@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cofn47jcs6cwn"]
 
 [ext_resource type="Texture2D" uid="uid://sx1872ugg8hd" path="res://sprite/rangeindicator.png" id="1_ikb7j"]
-[ext_resource type="Script" uid="uid://fb4m50scb0vm" path="res://rangeindicator.gd" id="1_w2frd"]
+[ext_resource type="Script" uid="uid://fb4m50scb0vm" path="res://script/rangeindicator.gd" id="1_w2frd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2frd"]
 atlas = ExtResource("1_ikb7j")

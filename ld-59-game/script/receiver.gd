@@ -1,13 +1,14 @@
 extends Node2D
 
-
-var PHI1 = 0
-
-@export var R = 2.1*128
-var T = float(Time.get_ticks_msec())/1e3
-
 @onready var Planet = $/root/main/Planet as Node2D
 @onready var Sprite = $Area2D/AnimatedSprite2D
+@export var R = 2.1*128
+var PHI1 = 0
+
+signal reach_goal
+
+var T = float(Time.get_ticks_msec())/1e3
+
 func change_place():
 	PHI1 = randf_range(-1,1)
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
