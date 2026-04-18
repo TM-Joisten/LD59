@@ -1,0 +1,55 @@
+extends Node2D
+
+var in_range: bool
+var pressable: bool = true
+var list = []
+var parent = self
+var current_parent = parent
+var area_array = []
+
+@onready var sat = $root/main/Satellite as Node2D
+@export var cooldown: float = 1
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var area_array = self.get_child(1).get_overlapping_areas()
+	
+	if (in_range == true) and (Input.get_action_strength("switch") > 0) and (pressable == true):
+		for element in area_array:       # figure out nearest object
+			var x_dist = abs(self.global_position.x - element.get_parent().global_position.x)
+			var y_dist = abs(self.global_position.y - element.get_parent().global_position.y)
+			var distance = abs(x_dist - y_dist)
+			list.append(distance)
+		for index in len(list):
+			if index == list.find(list.min()):
+				if area_array[index].get_parent() != current_parent:
+					current_parent = area_array[index].get_parent()
+				else:
+					list[index] += 5000
+		if area_array[list.find(list.min())].get_parent() != current_parent:
+					current_parent = area_array[list.find(list.min())].get_parent()
+		list.clear()
+		deadtime(cooldown)
+	elif (Input.get_action_strength("switch") > 0) and (pressable == true):
+		deadtime(cooldown)
+		pass
+	self.global_position.x = current_parent.global_position.x
+	self.global_position.y = current_parent.global_position.y
+	
+func deadtime(cooldown):
+	pressable = false
+	await get_tree().create_timer(cooldown).timeout
+	pressable = true
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	in_range = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	in_range = false
+	pass # Replace with function body.
