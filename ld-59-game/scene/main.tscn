@@ -1,0 +1,13 @@
+[gd_scene load_steps=0 format=3 uid="uid://cslhofevswf0j"]
+
+[node name="main" type="Node2D"]
+
+[node name="Signal" type="Node2D" parent="."]
+
+[node name="Planet" type="Node2D" parent="."]
+
+[node name="Satellite" type="Node2D" parent="."]
+
+[node name="Sender" type="Node2D" parent="."]
+
+[node name="Receiver" type="Node2D" parent="."]
