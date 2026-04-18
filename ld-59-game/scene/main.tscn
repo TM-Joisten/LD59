@@ -185,6 +185,7 @@ position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receiver/Area2D"]
 position = Vector2(0, 2)
+scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Receiver/Area2D"]
@@ -196,9 +197,19 @@ autoplay = "house1on"
 frame_progress = 0.64121985
 
 [node name="Planet" type="Node2D" parent="."]
-position = Vector2(494, 330)
+position = Vector2(816, 643)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
-position = Vector2(1.0000134, -5.722046e-06)
-scale = Vector2(1.7001956, 1.4736332)
-texture = ExtResource("1_0xm2m")
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("5_0ha60")
+
+[node name="Parallaxe" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallaxe"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D"]
+position = Vector2(1132, 642)
+texture = ExtResource("6_p1hux")
