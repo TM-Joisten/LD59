@@ -10,6 +10,7 @@ func get_dist():
 	var disty = abs(goal.global_position.y - parent.global_position.y)
 	var dist = abs(distx+disty)
 	return dist
+	
 func _ready() -> void:
 	$AnimatedSprite2D.play(animations[1])
 
