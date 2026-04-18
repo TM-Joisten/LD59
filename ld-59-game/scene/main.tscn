@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cydptx8h4whp6"]
+[gd_scene load_steps=12 format=3 uid="uid://cydptx8h4whp6"]
 
 [ext_resource type="Texture2D" uid="uid://d3t6h8j2gmq3h" path="res://icon.svg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://pbtrj2iq6771" path="res://script/receiver.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="5_0ha60"]
+[ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="6_p1hux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 117.28
@@ -67,6 +69,7 @@ position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receiver/Area2D"]
 position = Vector2(0, 2)
+scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Receiver"]
@@ -75,9 +78,19 @@ scale = Vector2(0.41796884, 0.42312896)
 texture = ExtResource("1_0xm2m")
 
 [node name="Planet" type="Node2D" parent="."]
-position = Vector2(494, 330)
+position = Vector2(816, 643)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
-position = Vector2(1.0000134, -5.722046e-06)
-scale = Vector2(1.7001956, 1.4736332)
-texture = ExtResource("1_0xm2m")
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("5_0ha60")
+
+[node name="Parallaxe" type="Node2D" parent="."]
+z_index = -2
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallaxe"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D"]
+position = Vector2(1132, 642)
+texture = ExtResource("6_p1hux")
