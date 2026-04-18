@@ -1,12 +1,15 @@
 extends Node2D
 
 
-var F = -1
-var R = 300
-var PHI1 = 0
+@export var F = -1
+@export var R = 300
+@export var PHI1 = 0
+@export var HAx = 1
+@export var HAy = 1
 var T = float(Time.get_ticks_msec())/1e3
 
 @onready var Planet = $/root/main/Planet as Node2D
+@onready var Area = $Area2D
 
 func _ready() -> void:
 	pass
