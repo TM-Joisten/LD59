@@ -103,6 +103,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(8, 21)
 sprite_frames = SubResource("SpriteFrames_123pn")
 animation = &"signal_off"
 autoplay = "signal_off"
