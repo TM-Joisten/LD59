@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://cydptx8h4whp6"]
+[gd_scene load_steps=16 format=3 uid="uid://cydptx8h4whp6"]
 
-[ext_resource type="Texture2D" uid="uid://d3t6h8j2gmq3h" path="res://icon.svg" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://pbtrj2iq6771" path="res://script/receiver.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://uy2qrggq8hwx" path="res://sprite/reciever.png" id="4_0ha60"]
+[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="5_0ha60"]
+[ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="6_p1hux"]
+[ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="7_p1hux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 117.28
@@ -42,47 +44,7 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("4_0ha60")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_of57s"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b5f6u"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqoya"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k65ib"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wscrc"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mswub"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hybxs"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(0, 64, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2gmf"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(32, 64, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcbur"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(64, 64, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smf0o"]
-atlas = ExtResource("4_0ha60")
-region = Rect2(96, 64, 32, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tv8i1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_of57s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -92,69 +54,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_p1hux")
 }],
 "loop": true,
-"name": &"house1off",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_of57s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b5f6u")
-}],
-"loop": true,
-"name": &"house1on",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tqoya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k65ib")
-}],
-"loop": true,
-"name": &"house2off",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wscrc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mswub")
-}],
-"loop": true,
-"name": &"house2on",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hybxs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v2gmf")
-}],
-"loop": true,
-"name": &"house3off",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jcbur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_smf0o")
-}],
-"loop": true,
-"name": &"house3on",
-"speed": 2.0
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="main" type="Node2D"]
-
-[node name="Signal" type="Node2D" parent="."]
-position = Vector2(75, -4)
 
 [node name="Satellite" type="Node2D" parent="."]
 position = Vector2(669, 138)
@@ -163,12 +67,12 @@ script = ExtResource("2_h2yge")
 [node name="Area2D" type="Area2D" parent="Satellite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Satellite/Area2D"]
-position = Vector2(21, 21)
+position = Vector2(-29, -120)
 shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Satellite"]
 texture_filter = 1
-position = Vector2(19.999998, 20.999998)
+position = Vector2(-26.999998, -122.999985)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5vw27")
 frame_progress = 0.8287205
@@ -189,27 +93,29 @@ scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Receiver/Area2D"]
-texture_filter = 1
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_tv8i1")
-animation = &"house1on"
-autoplay = "house1on"
-frame_progress = 0.64121985
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_of57s")
 
 [node name="Planet" type="Node2D" parent="."]
-position = Vector2(816, 643)
+z_index = -1
+position = Vector2(708, 352)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
 texture_filter = 1
-scale = Vector2(8, 8)
+position = Vector2(-4, 1)
+rotation = -0.0028761989
+scale = Vector2(4, 4)
 texture = ExtResource("5_0ha60")
 
 [node name="Parallaxe" type="Node2D" parent="."]
-z_index = -2
+z_index = -3
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallaxe"]
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D"]
-position = Vector2(1132, 642)
+position = Vector2(533, 325)
 texture = ExtResource("6_p1hux")
+
+[node name="Signal" parent="Parallaxe/Parallax2D" instance=ExtResource("7_p1hux")]
+position = Vector2(818, 113)
