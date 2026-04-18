@@ -5,6 +5,7 @@ extends Node2D
 @export var goal = Node2D
 @onready var animations = sprite.sprite_frames.get_animation_names()
 
+
 func get_dist():
 	var distx = abs(goal.global_position.x - parent.global_position.x)
 	var disty = abs(goal.global_position.y - parent.global_position.y)
@@ -16,7 +17,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var dist = get_dist()
-	print(dist             )
 	if dist > 750:
 		$AnimatedSprite2D.play(animations[1])
 	if dist < 750 && dist >300:

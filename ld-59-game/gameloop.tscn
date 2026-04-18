@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://by4ofsaau5m2v"]
+[gd_scene load_steps=21 format=3 uid="uid://by4ofsaau5m2v"]
 
 [ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="1_dyqgn"]
 [ext_resource type="Script" uid="uid://b152oyhjwjby8" path="res://gameloop.gd" id="1_tg65q"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d0mswiwelxy7h" path="res://scene/music.tscn" id="7_1s6s4"]
 [ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="8_dcit3"]
 [ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="9_g24b1"]
+[ext_resource type="PackedScene" uid="uid://0jy6qxg1ylq3" path="res://scene/UI.tscn" id="12_uthn4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhr53"]
 radius = 117.28
@@ -148,5 +149,8 @@ metadata/_edit_use_anchors_ = true
 parent = NodePath("../../../Signal")
 goal = NodePath("../../../Receiver")
 
+[node name="UI" parent="CanvasLayer" instance=ExtResource("12_uthn4")]
+
 [connection signal="reach_goal" from="Receiver" to="." method="_on_receiver_reach_goal"]
 [connection signal="reach_goal" from="Receiver" to="Signal" method="_on_receiver_reach_goal"]
+[connection signal="reach_goal" from="Receiver" to="CanvasLayer/UI" method="_on_receiver_reach_goal"]
