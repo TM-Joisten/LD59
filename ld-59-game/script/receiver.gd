@@ -3,7 +3,7 @@ extends Node2D
 
 var PHI1 = 0
 
-@export var R = 200
+@export var R = 2.1*128
 var T = float(Time.get_ticks_msec())/1e3
 @onready var Planet = $/root/main/Planet as Node2D
 @onready var Sprite = $Area2D/AnimatedSprite2D

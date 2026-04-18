@@ -17,7 +17,8 @@ position = Vector2(51, 3)
 position = Vector2(272, 194)
 
 [node name="Planet" type="Node2D" parent="."]
-position = Vector2(494, 330)
+z_index = -1
+position = Vector2(708, 352)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
 position = Vector2(1.0000134, -5.722046e-06)
