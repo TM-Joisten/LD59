@@ -41,14 +41,15 @@ script = ExtResource("2_h2yge")
 [node name="Area2D" type="Area2D" parent="Satellite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Satellite/Area2D"]
+position = Vector2(21, 21)
 shape = SubResource("CircleShape2D_0xm2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Satellite"]
 texture_filter = 1
-position = Vector2(-4, -3)
+position = Vector2(19.999998, 20.999998)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_5vw27")
-frame_progress = 0.81283045
+frame_progress = 0.5881952
 
 [node name="Sender" type="Node2D" parent="."]
 position = Vector2(51, 3)
