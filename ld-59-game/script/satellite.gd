@@ -8,7 +8,8 @@ extends Node2D
 @export var HAy = 1
 var T = float(Time.get_ticks_msec())/1e3
 
-@onready var Planet = $/root/main/Planet as Node2D
+@onready var Planet = $/root/state_manager/Planet
+
 @onready var Area = $Area2D
 
 func _ready() -> void:
