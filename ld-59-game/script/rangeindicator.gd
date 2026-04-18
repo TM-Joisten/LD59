@@ -2,7 +2,8 @@ extends Node2D
 
 @export var parent = Node2D
 @onready var sprite = $AnimatedSprite2D
-@export var goal = Node2D
+#@onready var goal: Node2D = $"../../../station"
+@onready var goal: Node2D = $"../../../Receiver"
 @onready var animations = sprite.sprite_frames.get_animation_names()
 
 
@@ -17,9 +18,10 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var dist = get_dist()
-	if dist > 750:
+	print(dist)
+	if dist > 800:
 		$AnimatedSprite2D.play(animations[1])
-	if dist < 750 && dist >300:
+	if dist < 800 && dist >400:
 		$AnimatedSprite2D.play(animations[2])
-	if dist < 300:
+	if dist < 400:
 		$AnimatedSprite2D.play(animations[0])

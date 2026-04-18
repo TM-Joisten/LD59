@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://by4ofsaau5m2v"]
+
+[ext_resource type="Script" uid="uid://b152oyhjwjby8" path="res://script/gameloop.gd" id="1_b3buy"]
+[ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="2_1owt3"]
+[ext_resource type="PackedScene" uid="uid://c5pj0ypkhilat" path="res://scene/satellite.tscn" id="3_0mgdl"]
+[ext_resource type="PackedScene" uid="uid://wxkdlxdy31ne" path="res://scene/receiver.tscn" id="4_uu2uo"]
+[ext_resource type="PackedScene" uid="uid://ca210bawifsha" path="res://scene/planet.tscn" id="5_ji1ds"]
+[ext_resource type="PackedScene" uid="uid://d0mswiwelxy7h" path="res://scene/music.tscn" id="6_408pf"]
+[ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="7_tj6e6"]
+[ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="8_4dgk5"]
+
+[node name="state_manager" type="Node2D"]
+script = ExtResource("1_b3buy")
+
+[node name="station" parent="." instance=ExtResource("2_1owt3")]
+position = Vector2(1075, -26)
+scale = Vector2(4, 4)
+
+[node name="Satellite" parent="." instance=ExtResource("3_0mgdl")]
+position = Vector2(997, 33)
+
+[node name="Receiver" parent="." instance=ExtResource("4_uu2uo")]
+position = Vector2(272, 194)
+scale = Vector2(2, 2)
+
+[node name="Planet" parent="." instance=ExtResource("5_ji1ds")]
+position = Vector2(1078, 641)
+
+[node name="music" parent="." instance=ExtResource("6_408pf")]
+position = Vector2(-90, 439)
+
+[node name="Signal" parent="." instance=ExtResource("7_tj6e6")]
+position = Vector2(-1094, 862)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 46.0
+offset_right = 97.0
+offset_bottom = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Rangeindicator" parent="CanvasLayer/Control" node_paths=PackedStringArray("parent") instance=ExtResource("8_4dgk5")]
+parent = NodePath("../../../Signal")

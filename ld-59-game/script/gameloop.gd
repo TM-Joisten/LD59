@@ -1,16 +1,14 @@
 extends Node2D
 
-@onready var SIG = $Signal
-@onready var STATION = $station
-@onready var GOAL = $Receiver
-
+@onready var SIG: Node2D = $Signal
+@onready var STATION: Node2D = $station
+@onready var GOAL: Node2D = $Receiver
 
 # set player
 func _ready() -> void:
 	SIG.position = STATION.position
 	GOAL.change_place()
 # set satellites
-
 
 # reach receiver
 func _on_receiver_reach_goal() -> void:

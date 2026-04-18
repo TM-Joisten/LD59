@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca210bawifsha"]
+
+[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="1_66ef5"]
+[ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="2_75knd"]
+
+[node name="Planet" type="Node2D"]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.5, 1.2500153)
+rotation = -0.0028761989
+scale = Vector2(8, 8)
+texture = ExtResource("1_66ef5")
+
+[node name="Parallaxe" type="Node2D" parent="."]
+z_index = -3
+position = Vector2(-1078, -641)
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallaxe"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D"]
+position = Vector2(1198.0001, 590.00006)
+scale = Vector2(1.9710933, 2.3468363)
+texture = ExtResource("2_75knd")

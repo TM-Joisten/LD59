@@ -1,13 +1,14 @@
 extends Node2D
-@export var R = 2.1*128
+@export var R = 4.1*128
 var PHI1 = 0
 
 signal reach_goal
 
 var T = float(Time.get_ticks_msec())/1e3
 @onready var Planet = $/root/state_manager/Planet as Node2D
-@onready var Sprite = $Area2D/AnimatedSprite2D
-@onready var Sig = $/root/state_manager/Signal as Node2D #get node of the item "signal"
+@onready var Sprite: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var Sig = $/root/state_manager/Signal as Node2D #get node of the item "signal"
+@onready var Sig: Node2D = $"../Signal"
 
 func change_place():		#rotates the reciever item
 	PHI1 = randf_range(0,8)

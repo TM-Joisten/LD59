@@ -22,7 +22,7 @@ position = Vector2(708, 352)
 
 [node name="Sprite2D" type="Sprite2D" parent="Planet"]
 position = Vector2(1.0000134, -5.722046e-06)
-scale = Vector2(1.7001956, 1.4736332)
+scale = Vector2(2, 2)
 texture = ExtResource("3_brvut")
 
 [node name="Signal" parent="." instance=ExtResource("6_4j5ol")]

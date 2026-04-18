@@ -7,8 +7,12 @@ var parent = self
 var current_parent = parent
 var area_array = []
 
-@onready var sat = $/root/state_manager/Satellite as Node2D
-@onready var STAT = $/root/state_manager/station
+#@onready var sat = $/root/state_manager/Satellite as Node2D
+#@onready var STAT = $/root/state_manager/station
+@onready var state_manager: Node2D = $".."
+@onready var sat: Node2D = $"../Satellite"
+@onready var STAT: Node2D = $"../station"
+@onready var GOAL: Node2D = $"../Receiver"
 @export var cooldown: float = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +44,11 @@ func _process(delta: float) -> void:
 	self.global_position.x = current_parent.global_position.x
 	self.global_position.y = current_parent.global_position.y
 	
+	if (self.global_position.x == GOAL.global_position.x) and (self.global_position.y == GOAL.global_position.y):
+		_on_receiver_reach_goal()
+		state_manager._on_receiver_reach_goal()
+		
+	
 func deadtime(cooldown):
 	pressable = false
 	await get_tree().create_timer(cooldown).timeout
@@ -53,7 +62,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	in_range = false
 	pass # Replace with function body.
-
 
 func _on_receiver_reach_goal() -> void:
 	current_parent = STAT
