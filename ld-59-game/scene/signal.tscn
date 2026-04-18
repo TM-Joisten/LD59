@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://csubvukg8mp2l"]
+
+[ext_resource type="Script" uid="uid://utq1x2nppygi" path="res://signal.gd" id="1_dqnih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 313.4087
+
+[node name="Signal" type="Node2D" groups=["signal"]]
+script = ExtResource("1_dqnih")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["satellite"]]
+
+[node name="Area2D" type="Area2D" parent="." groups=["satellite"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["satellite"]]
+shape = SubResource("CircleShape2D_1bvp3")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
