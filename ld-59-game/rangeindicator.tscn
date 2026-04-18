@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cofn47jcs6cwn"]
+
+[ext_resource type="Texture2D" uid="uid://sx1872ugg8hd" path="res://sprite/rangeindicator.png" id="1_ikb7j"]
+[ext_resource type="Script" uid="uid://fb4m50scb0vm" path="res://rangeindicator.gd" id="1_w2frd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2frd"]
+atlas = ExtResource("1_ikb7j")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7amu3"]
+atlas = ExtResource("1_ikb7j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7pde"]
+atlas = ExtResource("1_ikb7j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvqy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2frd")
+}],
+"loop": true,
+"name": &"high",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7amu3")
+}],
+"loop": true,
+"name": &"low",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7pde")
+}],
+"loop": true,
+"name": &"mid",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_w2frd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fvqy7")
+animation = &"low"
