@@ -1,19 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5pj0ypkhilat"]
+[gd_scene load_steps=7 format=3 uid="uid://c5pj0ypkhilat"]
 
-[ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://satellite.gd" id="1_1hlrh"]
-[ext_resource type="Texture2D" uid="uid://d3t6h8j2gmq3h" path="res://icon.svg" id="2_eub56"]
+[ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="1_1hlrh"]
+[ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="2_eub56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 117.28
 
-[node name="Satellite" type="Node2D" groups=["satellite"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("2_eub56")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("2_eub56")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vw27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Satellite" type="Node2D"]
 script = ExtResource("1_1hlrh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["satellite"]]
-position = Vector2(-4, -3)
-texture = ExtResource("2_eub56")
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="." groups=["satellite"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["satellite"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(21, 21)
 shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19.999998, 20.999998)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5vw27")
+frame_progress = 0.8287205

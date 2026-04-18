@@ -5,11 +5,12 @@ var PHI1 = 0
 
 @export var R = 2.1*128
 var T = float(Time.get_ticks_msec())/1e3
-
 @onready var Planet = $/root/main/Planet as Node2D
 @onready var Sprite = $Area2D/AnimatedSprite2D
-func change_place():
-	PHI1 = randf_range(-1,1)
+@onready var Sig = $/root/main/Signal as Node2D #get node of the item "signal"
+
+func change_place():			#rotates the reciever item
+	PHI1 = randf_range(0,8)
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	Sprite.rotation = 0
@@ -17,17 +18,31 @@ func change_place():
 	Sprite.rotate(get_angle_to(Planet.position)- PI/2)
 	print(get_angle_to(Planet.position))
 	
+	
+func distance() -> float:
+	var sigx = abs(global_position.x - Sig.global_position.x)
+	var sigy = abs(global_position.y - Sig.global_position.y)
+	return sigx + sigy
 
-func _ready() -> void:
+func _ready() -> void: #used for random position and random house
 	randomize()
 	change_place()
-	var animations = Sprite.sprite_frames.get_animation_names()
-	var random_ani = animations[randi() % animations.size()]
+	var animations_off = ["house1off", "house2off", "house3off"]
+	var random_ani = animations_off[randi() % animations_off.size()]
 	Sprite.play(random_ani)
-	 
-	pass
+	
+	pass	
 	
 
+
 func _process(float) -> void:
+	var animations_on = ["house1on", "house2on", "house3on"]
 	T = float(Time.get_ticks_msec())/1e3
-	
+	if distance() < 1.0:
+		if Sprite.animation == "house1off":
+			Sprite.play("house1on")
+		elif Sprite.animation == "house2off":
+			Sprite.play("house2on")
+		elif Sprite.animation == "house3off":
+			Sprite.play("house3on")
+		
