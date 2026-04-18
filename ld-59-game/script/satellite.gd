@@ -16,10 +16,5 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	T = float(Time.get_ticks_msec())/1e3
-<<<<<<< HEAD:ld-59-game/satellite.gd
-	self.global_position.x = Planet.global_position.x + HAx*R*cos(F*T + PHI1)
-	self.global_position.y = Planet.global_position.y + HAy*R*sin(F*T + PHI1)
-=======
 	self.global_position.x = Planet.global_position.x + R*cos(F*T + PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(F*T + PHI1)
->>>>>>> main:ld-59-game/script/satellite.gd
