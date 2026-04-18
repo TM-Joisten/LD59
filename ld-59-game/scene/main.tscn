@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cydptx8h4whp6"]
+[gd_scene load_steps=18 format=3 uid="uid://cydptx8h4whp6"]
 
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://pbtrj2iq6771" path="res://script/receiver.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="3_b5f6u"]
 [ext_resource type="Texture2D" uid="uid://uy2qrggq8hwx" path="res://sprite/reciever.png" id="4_0ha60"]
 [ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="5_0ha60"]
 [ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="6_p1hux"]
@@ -98,6 +99,7 @@ position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_of57s")
 
 [node name="Planet" type="Node2D" parent="."]
+unique_name_in_owner = true
 z_index = -1
 position = Vector2(708, 352)
 
@@ -118,8 +120,22 @@ scroll_scale = Vector2(0.5, 0.5)
 position = Vector2(533, 325)
 texture = ExtResource("6_p1hux")
 
-[node name="Signal" parent="Parallaxe/Parallax2D" instance=ExtResource("7_p1hux")]
-position = Vector2(818, 113)
-
 [node name="Node2D" parent="." instance=ExtResource("8_of57s")]
 position = Vector2(-90, 439)
+
+[node name="Signal" parent="." instance=ExtResource("7_p1hux")]
+position = Vector2(1029, 53)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 46.0
+offset_top = 46.0
+offset_right = 97.0
+offset_bottom = 100.0
+
+[node name="Rangeindicator" parent="CanvasLayer/Control" node_paths=PackedStringArray("parent", "goal") instance=ExtResource("3_b5f6u")]
+parent = NodePath("../../../Satellite")
+goal = NodePath("../../../Receiver")
