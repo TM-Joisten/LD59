@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://88rru1lkr5u1"]
+
+[ext_resource type="Script" uid="uid://csft4772qewyg" path="res://script/ui.gd" id="1_c73ev"]
+[ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="2_cbomc"]
+[ext_resource type="Texture2D" uid="uid://ng7su5u1ss1h" path="res://sprite/happinesmeter.png" id="3_cbomc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe48f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbuqp"]
+atlas = ExtResource("3_cbomc")
+region = Rect2(31, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wp6k"]
+atlas = ExtResource("3_cbomc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb7dc"]
+atlas = ExtResource("3_cbomc")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwasl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbuqp")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wp6k")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb7dc")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c73ev")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 894.0
+offset_top = -40.0
+offset_right = 1152.0
+offset_bottom = 102.0
+theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
+theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0)
+theme_override_colors/selection_color = Color(0.002700078, 0.002700078, 0.002700078, 1)
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_placeholder_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.81200004)
+theme_override_colors/current_line_color = Color(0, 0, 0, 0)
+theme_override_constants/caret_width = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("2_cbomc")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qe48f")
+text = "
+ 100%"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(882, 43)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_lwasl")
+animation = &"sad"
