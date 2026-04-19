@@ -17,7 +17,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var dist = get_dist()
-	print(dist)
 	if dist > 800:
 		$AnimatedSprite2D.play(animations[1])
 	if dist < 800 && dist >400:

@@ -14,6 +14,8 @@ var area_array = []
 @onready var STAT: Node2D = $"../station"
 @onready var GOAL: Node2D = $"../Receiver"
 @export var cooldown: float = 1
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var beam: Node2D = $beam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var area_array = self.get_child(1).get_overlapping_areas()
 	if (in_range == true) and (Input.get_action_strength("switch") > 0) and (pressable == true):
-		for element in area_array:       # figure out nearest object
+		for element in area_array:            # figure out nearest object
 			var x_dist = abs(self.global_position.x - element.get_parent().global_position.x)
 			var y_dist = abs(self.global_position.y - element.get_parent().global_position.y)
 			var distance = abs(x_dist - y_dist)
@@ -32,15 +34,18 @@ func _process(delta: float) -> void:
 			if index == list.find(list.min()):
 				if area_array[index].get_parent() != current_parent:
 					current_parent = area_array[index].get_parent()
+					beam.fire(area_array[index], (self.global_position.x == current_parent.global_position.x), (self.global_position.y == current_parent.global_position.y))
 				else:
 					list[index] += 5000
 		if area_array[list.find(list.min())].get_parent() != current_parent:
-					current_parent = area_array[list.find(list.min())].get_parent()
+			current_parent = area_array[list.find(list.min())].get_parent()
 		list.clear()
 		deadtime(cooldown)
+		
 	elif (Input.get_action_strength("switch") > 0) and (pressable == true):
 		deadtime(cooldown)
 		pass
+	
 	self.global_position.x = current_parent.global_position.x
 	self.global_position.y = current_parent.global_position.y
 	
