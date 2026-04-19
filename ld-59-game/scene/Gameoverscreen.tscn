@@ -49,10 +49,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = 2.0
-offset_right = -1.0
-offset_bottom = 2.0
+offset_left = 574.0
+offset_top = 4.0
+offset_right = 574.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r652g")
@@ -60,10 +60,10 @@ script = ExtResource("1_r652g")
 [node name="gameovertext" type="TextEdit" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 259.0
-offset_top = -32.0
-offset_right = 795.0
-offset_bottom = 145.0
+offset_left = -418.0
+offset_top = -941.0
+offset_right = 401.0
+offset_bottom = -705.0
 theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
 theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
 theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
@@ -77,17 +77,17 @@ theme_override_constants/caret_width = 1
 theme_override_constants/outline_size = 10
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_1ohti")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 86
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mysbu")
 text = "
  GAME OVER"
 
 [node name="Planet" parent="." instance=ExtResource("2_ifsle")]
-position = Vector2(144, 825)
+position = Vector2(-587, 729)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(933.00006, 192)
+position = Vector2(731, -164.00003)
 scale = Vector2(5.1875, 5.1875)
 sprite_frames = SubResource("SpriteFrames_ylu6h")
 autoplay = "default"
@@ -97,10 +97,10 @@ frame_progress = 1.0
 [node name="subtext" type="TextEdit" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 363.0
-offset_top = 51.0
-offset_right = 899.0
-offset_bottom = 228.0
+offset_left = -290.0
+offset_top = -808.0
+offset_right = 402.0
+offset_bottom = -487.0
 theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
 theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
 theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
@@ -114,7 +114,7 @@ theme_override_constants/caret_width = 1
 theme_override_constants/outline_size = 10
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_1ohti")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mysbu")
 text = "
 you reached 
@@ -124,10 +124,10 @@ you reached
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-offset_left = 388.0
-offset_top = 247.0
-offset_right = 664.0
-offset_bottom = 335.0
+offset_left = -144.0
+offset_top = -34.0
+offset_right = 132.0
+offset_bottom = 54.0
 theme = SubResource("Theme_r652g")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
@@ -139,5 +139,8 @@ text = "Retry?"
 
 [node name="station" parent="." instance=ExtResource("5_6tjse")]
 texture_filter = 1
-position = Vector2(111, 141)
+position = Vector2(-608, 35)
 scale = Vector2(4, 4)
+
+[connection signal="retry" from="." to="." method="_on_retry"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

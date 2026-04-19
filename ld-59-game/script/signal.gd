@@ -1,7 +1,7 @@
 extends Node2D
 
 var in_range: bool
-var pressable: bool = true
+@export var pressable: bool = true
 var list = []
 var parent = self
 var current_parent = parent
@@ -64,5 +64,9 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func _on_receiver_reach_goal() -> void:
+	current_parent = STAT
+	pass # Replace with function body.
+
+func _on_control_2_counter_zero() -> void:
 	current_parent = STAT
 	pass # Replace with function body.

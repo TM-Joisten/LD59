@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by4ofsaau5m2v"]
+[gd_scene load_steps=11 format=3 uid="uid://by4ofsaau5m2v"]
 
 [ext_resource type="Script" uid="uid://b152oyhjwjby8" path="res://script/gameloop.gd" id="1_b3buy"]
 [ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="2_1owt3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="7_tj6e6"]
 [ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="8_4dgk5"]
 [ext_resource type="PackedScene" uid="uid://88rru1lkr5u1" path="res://scene/UI.tscn" id="9_1owt3"]
+[ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
 
 [node name="state_manager" type="Node2D"]
 script = ExtResource("1_b3buy")
@@ -46,7 +47,7 @@ scale = Vector2(4, 4)
 position = Vector2(-90, 439)
 
 [node name="Signal" parent="." instance=ExtResource("7_tj6e6")]
-position = Vector2(-318, 230)
+position = Vector2(605, 306)
 cooldown = 0.3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -64,6 +65,16 @@ metadata/_edit_use_anchors_ = true
 parent = NodePath("../../../Signal")
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource("9_1owt3")]
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="gameover" parent="." instance=ExtResource("10_0mgdl")]
+visible = false
 
 [connection signal="reach_goal" from="Receiver" to="." method="_on_receiver_reach_goal"]
 [connection signal="reach_goal" from="Receiver" to="CanvasLayer/Control2" method="_on_receiver_reach_goal"]
+[connection signal="counterZERO" from="CanvasLayer/Control2" to="." method="_on_control_2_counter_zero"]
+[connection signal="counterZERO" from="CanvasLayer/Control2" to="Signal" method="_on_control_2_counter_zero"]
+[connection signal="counterZERO" from="CanvasLayer/Control2" to="gameover" method="_on_control_2_counter_zero"]
+[connection signal="retry" from="gameover" to="." method="_on_gameover_retry"]
+[connection signal="retry" from="gameover" to="Signal" method="_on_gameover_retry"]

@@ -1,7 +1,7 @@
 extends Control
 
 @export var counter = 100
-var X = 2 # Ticks/s
+var X = 1.5   # Ticks/s
 var delta_time = 0
 signal counterZERO
 @onready var Textbox = $TextEdit
@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 			sprite.play("sad")
 		else: 
 			sprite.play("happy")
-		if counter == 0:
+		if counter <= 0:
 			counterZERO.emit()
