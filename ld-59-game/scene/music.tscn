@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0mswiwelxy7h"]
+[gd_scene load_steps=3 format=3 uid="uid://d0mswiwelxy7h"]
 
-[ext_resource type="AudioStream" uid="uid://h15ewy8k5251" path="res://music/LD59song.wav" id="1_y257y"]
+[ext_resource type="AudioStream" uid="uid://bvve6whu1wa3b" path="res://music/start_end.wav" id="1_y257y"]
+[ext_resource type="AudioStream" uid="uid://h15ewy8k5251" path="res://music/LD59song.wav" id="2_ctbg1"]
 
 [node name="music" type="Node2D"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="game_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_y257y")
-autoplay = true
+
+[node name="sceens" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ctbg1")
