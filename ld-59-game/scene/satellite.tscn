@@ -31,7 +31,6 @@ animations = [{
 [node name="Satellite" type="Node2D"]
 script = ExtResource("1_1hlrh")
 R = 800
-HAx = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(9, 13)
