@@ -15,8 +15,6 @@ var area_array = []
 @onready var GOAL: Node2D = $"../Receiver"
 @export var cooldown: float = 1
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var beam: Node2D = $beam
-@onready var audio: AudioStreamPlayer2D = $ AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

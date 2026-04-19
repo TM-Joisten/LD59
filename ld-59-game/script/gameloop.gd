@@ -6,12 +6,14 @@ extends Node2D
 @onready var COUNTER: Control = $CanvasLayer/Control2
 @onready var GAMEOVER: Control = $gameover
 @onready var PLANETINDICATOR: Control = $CanvasLayer/Control3
+@onready var MUSIC: Node2D = $music
 @export var housecounter = 0
 @export var reset = false
 
 
 # set player
 func _ready() -> void:
+	MUSIC.get_child(0).set_playing(true)
 	SIG.position = STATION.position
 	SIG.pressable = true
 	$gameover.hide()
@@ -19,6 +21,7 @@ func _ready() -> void:
 	
 
 func _on_receiver_reach_goal() -> void:
+	await get_tree().create_timer(1).timeout
 	var planets = get_tree().get_nodes_in_group("planet")
 	print(planets)
 	var p_i = randi() % len(planets)
@@ -34,6 +37,8 @@ func _on_receiver_reach_goal() -> void:
 func _on_control_2_counter_zero() -> void:
 	$CanvasLayer.hide()
 	GAMEOVER.show()
+	MUSIC.get_child(0).set_playing(false)
+	MUSIC.get_child(1).set_playing(true)
 	SIG.position = STATION.position    
 	GAMEOVER.position=SIG.position
 	GAMEOVER.z_index = 10
@@ -44,6 +49,8 @@ func _on_control_2_counter_zero() -> void:
 func _on_gameover_retry() -> void:
 	housecounter= 0
 	COUNTER.counter += 100
+	MUSIC.get_child(0).set_playing(true)
+	MUSIC.get_child(1).set_playing(false)
 	$CanvasLayer.show()
 	$gameover.hide()
 	_ready()  
