@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://csubvukg8mp2l"]
+[gd_scene load_steps=4 format=3 uid="uid://csubvukg8mp2l"]
 
 [ext_resource type="Script" uid="uid://utq1x2nppygi" path="res://script/signal.gd" id="1_dqnih"]
+[ext_resource type="Texture2D" uid="uid://dqig7hcutkok2" path="res://sprite/transmission_radius.png" id="2_nlwsf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 313.4087
@@ -9,7 +10,10 @@ radius = 313.4087
 script = ExtResource("1_dqnih")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["satellite"]]
-scale = Vector2(0.1, 0.1)
+texture_filter = 1
+position = Vector2(2.1874924, -3.2962837)
+scale = Vector2(37.101563, 37.80602)
+texture = ExtResource("2_nlwsf")
 
 [node name="Area2D" type="Area2D" parent="." groups=["satellite"]]
 
@@ -17,7 +21,7 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.2, 0.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 

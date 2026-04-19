@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://drohk50qn3lqe"]
+
+[ext_resource type="Script" uid="uid://o00lix1xt4bm" path="res://script/planetindicator.gd" id="1_cxsq6"]
+[ext_resource type="Texture2D" uid="uid://cretk6bccv33h" path="res://sprite/Planetindicator.png" id="2_0pkh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5o76"]
+atlas = ExtResource("2_0pkh8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oayc"]
+atlas = ExtResource("2_0pkh8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd1d3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5o76")
+}],
+"loop": true,
+"name": &"Moon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oayc")
+}],
+"loop": true,
+"name": &"Planet",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxsq6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(108, 37)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rd1d3")
+animation = &"Planet"
