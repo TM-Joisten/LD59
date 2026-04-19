@@ -41,6 +41,7 @@ F = 0.9
 R = 2600
 HAx = 2.0
 HAy = 1.1
+type = "V2"
 Planet = NodePath("../Planet")
 
 [node name="Satellite4_P1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
@@ -49,13 +50,24 @@ F = -0.6
 R = 2450
 HAx = 1.1
 HAy = 2.0
+type = "V2"
 Planet = NodePath("../Planet")
 
 [node name="Satellite_MP1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
 texture_filter = 1
 scale = Vector2(2, 2)
-F = 1.0
+F = -0.8
 R = 512
+HAx = 1.4
+HAy = 1.4
+Planet = NodePath("../moon")
+
+[node name="Satellite_MP2" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
+texture_filter = 1
+scale = Vector2(2, 2)
+F = -0.8
+R = 512
+PHI1 = 3.142
 HAx = 1.4
 HAy = 1.4
 Planet = NodePath("../moon")
@@ -76,14 +88,14 @@ position = Vector2(-90, 439)
 
 [node name="Signal" parent="." instance=ExtResource("7_tj6e6")]
 position = Vector2(605, 306)
-cooldown = 0.3
+cooldown = 0.2
 
 [node name="moon" parent="." node_paths=PackedStringArray("Planet") groups=["planet"] instance=ExtResource("12_ji1ds")]
 texture_filter = 1
 position = Vector2(-5001, 1799)
 scale = Vector2(4, 4)
-F = -0.45
-R = 4500
+F = 0.3
+R = 5000
 Planet = NodePath("../Planet")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

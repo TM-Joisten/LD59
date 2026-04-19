@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5pj0ypkhilat"]
+[gd_scene load_steps=10 format=3 uid="uid://c5pj0ypkhilat"]
 
 [ext_resource type="Script" uid="uid://waubfe5mh6r1" path="res://script/satellite.gd" id="1_1hlrh"]
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="2_eub56"]
+[ext_resource type="Texture2D" uid="uid://csw2ikffb787p" path="res://sprite/satellite2.png" id="3_eub56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhr53"]
 radius = 117.28
@@ -14,6 +15,14 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_eub56")
 region = Rect2(16, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_28vd6"]
+atlas = ExtResource("3_eub56")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gccoj"]
+atlas = ExtResource("3_eub56")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cyjpb"]
 animations = [{
 "frames": [{
@@ -24,8 +33,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_272bh")
 }],
 "loop": true,
-"name": &"default",
+"name": &"V1",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28vd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gccoj")
+}],
+"loop": true,
+"name": &"V2",
+"speed": 1.0
 }]
 
 [node name="Satellite" type="Node2D"]
@@ -44,3 +64,6 @@ texture_filter = 1
 position = Vector2(5, 0.99998474)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_cyjpb")
+animation = &"V2"
+autoplay = "V2"
+frame_progress = 0.015362408

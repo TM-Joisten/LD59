@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 			if index == list.find(list.min()):
 				if area_array[index].get_parent() != current_parent:
 					current_parent = area_array[index].get_parent()
+					audio.play()
+					
 				else:
 					list[index] += 5000
 		if area_array[list.find(list.min())].get_parent() != current_parent:

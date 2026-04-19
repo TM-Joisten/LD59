@@ -19,11 +19,6 @@ func _ready() -> void:
 	$gameover.hide()
 	# random planet spawning
 	
-# set satellites
- 
-# reach receiver
-# reset player 
-# reset receiver
 
 func _on_receiver_reach_goal() -> void:
 	await get_tree().create_timer(1).timeout
