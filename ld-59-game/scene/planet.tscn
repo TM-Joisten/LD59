@@ -1,14 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca210bawifsha"]
+[gd_scene load_steps=10 format=3 uid="uid://ca210bawifsha"]
 
 [ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="1_66ef5"]
 [ext_resource type="Script" uid="uid://cs7fh5diy4xfc" path="res://script/planet.gd" id="1_75knd"]
 [ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="2_75knd"]
+[ext_resource type="Shader" uid="uid://cpab8gyvb60hs" path="res://sprite/planet.gdshader" id="2_ohpux"]
+[ext_resource type="Texture2D" uid="uid://col0lvxx7vbre" path="res://sprite/planet copy.png" id="4_ataao"]
+[ext_resource type="Texture2D" uid="uid://djh7m0uu08g2q" path="res://sprite/sun.png" id="6_u71er"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u71er"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l5gcb"]
+noise = SubResource("FastNoiseLite_u71er")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvgff"]
+shader = ExtResource("2_ohpux")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_l5gcb")
+shader_parameter/density = 1.0
+shader_parameter/speed = Vector2(0.02, 0.01)
 
 [node name="Planet" type="Node2D"]
 z_index = -1
 script = ExtResource("1_75knd")
 
+[node name="clouds" type="Sprite2D" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_vvgff")
+position = Vector2(1.5, 1.2500153)
+rotation = -0.0028761989
+scale = Vector2(8, 8)
+texture = ExtResource("4_ataao")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 position = Vector2(1.5, 1.2500153)
 rotation = -0.0028761989
@@ -20,11 +45,21 @@ z_index = -3
 position = Vector2(-1078, -641)
 scale = Vector2(1.5, 1.5)
 
-[node name="Parallax2D" type="Parallax2D" parent="Parallaxe"]
-texture_filter = 1
-scroll_scale = Vector2(0.85, 0.85)
+[node name="Parallax2D2" type="Parallax2D" parent="Parallaxe"]
+z_index = 1
+scroll_scale = Vector2(0.98, 0.98)
+scroll_offset = Vector2(14, 9)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D"]
+[node name="Parallax2D" type="Parallax2D" parent="Parallaxe/Parallax2D2"]
+z_index = 1
+scroll_scale = Vector2(0.99, 0.99)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallaxe/Parallax2D2/Parallax2D"]
 position = Vector2(1198.0001, 590.00006)
 scale = Vector2(1.9710933, 2.3468363)
 texture = ExtResource("2_75knd")
+
+[node name="sun" type="Sprite2D" parent="Parallaxe/Parallax2D2"]
+z_index = 1
+position = Vector2(648.99994, 334.99997)
+texture = ExtResource("6_u71er")
