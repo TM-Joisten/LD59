@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkcnu0yl2e8hi"]
+
+[ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_1ohti"]
+[ext_resource type="Script" uid="uid://kt5tw65hdvnu" path="res://script/gameover.gd" id="1_r652g"]
+[ext_resource type="PackedScene" uid="uid://ca210bawifsha" path="res://scene/planet.tscn" id="2_ifsle"]
+[ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="3_ifsle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mysbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r652g"]
+atlas = ExtResource("3_ifsle")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tjse"]
+atlas = ExtResource("3_ifsle")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylu6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r652g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tjse")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="Theme" id="Theme_r652g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tjse"]
+bg_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r652g")
+
+[node name="gameovertext" type="TextEdit" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 259.0
+offset_top = -32.0
+offset_right = 795.0
+offset_bottom = 145.0
+theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
+theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0)
+theme_override_colors/selection_color = Color(0.002700078, 0.002700078, 0.002700078, 1)
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_placeholder_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.81200004)
+theme_override_colors/current_line_color = Color(0, 0, 0, 0)
+theme_override_constants/caret_width = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_1ohti")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mysbu")
+text = "
+ GAME OVER"
+
+[node name="Planet" parent="." instance=ExtResource("2_ifsle")]
+position = Vector2(144, 825)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(933.00006, 192)
+scale = Vector2(5.1875, 5.1875)
+sprite_frames = SubResource("SpriteFrames_ylu6h")
+frame = 1
+frame_progress = 1.0
+
+[node name="subtext" type="TextEdit" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 363.0
+offset_top = 51.0
+offset_right = 899.0
+offset_bottom = 228.0
+theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
+theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0)
+theme_override_colors/selection_color = Color(0.002700078, 0.002700078, 0.002700078, 1)
+theme_override_colors/font_color = Color(0.6156863, 0.75686276, 0.7529412, 1)
+theme_override_colors/font_placeholder_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.81200004)
+theme_override_colors/current_line_color = Color(0, 0, 0, 0)
+theme_override_constants/caret_width = 1
+theme_override_constants/outline_size = 10
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_1ohti")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mysbu")
+text = "
+you reached 
+ N Houses"
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 388.0
+offset_top = 247.0
+offset_right = 664.0
+offset_bottom = 335.0
+theme = SubResource("Theme_r652g")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_pressed_color = Color(0.6156863, 0.75686276, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_1ohti")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_6tjse")
+text = "Retry?"

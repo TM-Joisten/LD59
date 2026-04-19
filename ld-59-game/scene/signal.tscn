@@ -16,6 +16,7 @@ script = ExtResource("1_dqnih")
 shape = SubResource("CircleShape2D_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 

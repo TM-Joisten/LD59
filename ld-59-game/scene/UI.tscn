@@ -84,4 +84,4 @@ texture_filter = 1
 position = Vector2(882, 43)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lwasl")
-animation = &"sad"
+animation = &"happy"

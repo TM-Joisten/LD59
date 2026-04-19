@@ -1,7 +1,7 @@
 extends Control
 
 @export var counter = 100
-var X = 2.5 # Ticks/s
+var X = 2 # Ticks/s
 var delta_time = 0
 signal counterZERO
 @onready var Textbox = $TextEdit
@@ -10,7 +10,9 @@ signal counterZERO
 
 func _process(delta: float) -> void:
 	delta_time += delta
-	if delta_time >= 1.0 and  counter !=0 and counter <=100:
+	if delta_time >= 1.0 and  counter !=0 :
+		if counter > 100:
+			counter = 100
 		Textbox.clear()
 		delta_time = 0
 		counter -= X
@@ -23,10 +25,3 @@ func _process(delta: float) -> void:
 			sprite.play("happy")
 		if counter == 0:
 			counterZERO.emit()
-	 
-	
-
-
-func _on_receiver_reach_goal() -> void:
-	counter +=10
-	pass # Replace with function body.

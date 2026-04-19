@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var F = -1
+@export var F = -1.0
 @export var R =4*128
 @export var PHI1 = 0
 @export var HAx = 1
