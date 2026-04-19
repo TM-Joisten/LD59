@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca10l1tmm8gsh"]
+
+[ext_resource type="Script" uid="uid://cnphry1qpud6q" path="res://intro.gd" id="1_dlfbb"]
+[ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="2_srnjo"]
+[ext_resource type="Texture2D" uid="uid://b5k8ca86t15ry" path="res://sprite/intro.png" id="3_lf28b"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_dlfbb")
+
+[node name="Button_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="Button_manager"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 442.0
+offset_top = 429.0
+offset_right = 616.0
+offset_bottom = 464.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_srnjo")
+theme_override_font_sizes/font_size = 26
+text = "start"
+
+[node name="quit" type="Button" parent="Button_manager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 463.0
+offset_top = 472.0
+offset_right = 636.0
+offset_bottom = 507.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_srnjo")
+theme_override_font_sizes/font_size = 26
+text = "quit
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(577, 325)
+scale = Vector2(1.1230469, 1)
+texture = ExtResource("3_lf28b")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 90.0
+offset_right = 896.0
+offset_bottom = 467.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_srnjo")
+theme_override_font_sizes/font_size = 32
+text = "I really should've gotten 
+a cabel connection"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button_manager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button_manager/quit" to="." method="_on_quit_pressed"]
