@@ -13,7 +13,7 @@ var T = float(Time.get_ticks_msec())/1e3
 func change_place():		#rotates the reciever item
 	print(typeof(Planet))
 	PHI1 = randf_range(3/4*PI,15/4*PI)
-	R = 512*Planet.scale.x
+	R = 530*Planet.scale.x
 	print(R)
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
@@ -38,7 +38,7 @@ func _ready() -> void: #used for random position and random house
 
 func _process(float) -> void:
 	if Planet.id() == "Moon" :
-		R = 95*Planet.scale.x 
+		R = 160*Planet.scale.x 
 		self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 		self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	var animations_on = ["house1on", "house2on", "house3on"]

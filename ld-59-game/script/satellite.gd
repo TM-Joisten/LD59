@@ -3,9 +3,9 @@ extends Node2D
 
 @export var F = -1.0
 @export var R =4*128
-@export var PHI1 = 0
-@export var HAx = 1
-@export var HAy = 1
+@export var PHI1 = 0.0
+@export var HAx = 1.0
+@export var HAy = 1.0
 var T = float(Time.get_ticks_msec())/1e3
 
 @export var Planet =Node2D

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnl150u78u7hb"]
 
 [ext_resource type="Script" uid="uid://b52gfuwth2sxq" path="res://script/moon.gd" id="1_na40n"]
-[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="2_17wta"]
+[ext_resource type="Texture2D" uid="uid://qrgrk1fjqs5f" path="res://sprite/moon.png" id="2_na40n"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(-4, -13)
@@ -10,4 +10,7 @@ F = -0.5
 R = 4000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_17wta")
+texture_filter = 1
+position = Vector2(2, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("2_na40n")

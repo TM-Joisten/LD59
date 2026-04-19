@@ -5,6 +5,7 @@ extends Node2D
 @onready var GOAL: Node2D = $Receiver
 @onready var COUNTER: Control = $CanvasLayer/Control2
 @onready var GAMEOVER: Control = $gameover
+@onready var PLANETINDICATOR: Control = $CanvasLayer/Control3
 @export var housecounter = 0
 @export var reset = false
 
@@ -27,7 +28,7 @@ func _on_receiver_reach_goal() -> void:
 	print(planets)
 	var p_i = randi() % len(planets)
 	GOAL.Planet = planets[p_i]
-	print(planets[p_i])
+	PLANETINDICATOR.id = GOAL.Planet.id()
 	GOAL.change_place()
 	COUNTER.counter += 15
 	housecounter += 1

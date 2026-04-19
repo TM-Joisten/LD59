@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://by4ofsaau5m2v"]
+[gd_scene load_steps=14 format=3 uid="uid://by4ofsaau5m2v"]
 
 [ext_resource type="Script" uid="uid://b152oyhjwjby8" path="res://script/gameloop.gd" id="1_b3buy"]
 [ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="2_1owt3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="8_4dgk5"]
 [ext_resource type="PackedScene" uid="uid://88rru1lkr5u1" path="res://scene/UI.tscn" id="9_1owt3"]
 [ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
+[ext_resource type="PackedScene" uid="uid://drohk50qn3lqe" path="res://scene/planetindicator.tscn" id="12_408pf"]
 [ext_resource type="PackedScene" uid="uid://cnl150u78u7hb" path="res://scene/moon.tscn" id="12_ji1ds"]
 
 [node name="state_manager" type="Node2D"]
@@ -25,33 +26,39 @@ scale = Vector2(8, 8)
 [node name="Satellite_P1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
 position = Vector2(233, -597)
 scale = Vector2(2, 2)
-F = -0.8
-R = 2600
-PHI1 = 12
-HAx = 1
+F = 0.9
+R = 2450
 Planet = NodePath("../Planet")
 
 [node name="Satellite2_P1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
 scale = Vector2(2, 2)
-F = 0.75
-R = 2600
-PHI1 = 1
-HAx = 1
+F = -0.6
+R = 2450
 Planet = NodePath("../Planet")
 
 [node name="Satellite3_P1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
 scale = Vector2(2, 2)
-F = 0.75
+F = 0.9
 R = 2600
-PHI1 = 423
+HAx = 2.0
+HAy = 1.1
+Planet = NodePath("../Planet")
+
+[node name="Satellite4_P1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
+scale = Vector2(2, 2)
+F = -0.6
+R = 2450
+HAx = 1.1
+HAy = 2.0
 Planet = NodePath("../Planet")
 
 [node name="Satellite_MP1" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("3_0mgdl")]
 texture_filter = 1
 scale = Vector2(2, 2)
-F = 0.75
-R = 480
-HAy = 2
+F = 1.0
+R = 512
+HAx = 1.4
+HAy = 1.4
 Planet = NodePath("../moon")
 
 [node name="Receiver" parent="." node_paths=PackedStringArray("Planet") instance=ExtResource("4_uu2uo")]
@@ -73,12 +80,12 @@ position = Vector2(605, 306)
 cooldown = 0.3
 
 [node name="beam" parent="Signal" instance=ExtResource("8_1owt3")]
-visible = false
 
 [node name="moon" parent="." node_paths=PackedStringArray("Planet") groups=["planet"] instance=ExtResource("12_ji1ds")]
 texture_filter = 1
 position = Vector2(-5001, 1799)
 scale = Vector2(4, 4)
+F = -0.45
 R = 4500
 Planet = NodePath("../Planet")
 
@@ -100,8 +107,13 @@ parent = NodePath("../../../Signal")
 offset_left = 1.0
 offset_right = 1.0
 
+[node name="Control3" parent="CanvasLayer" instance=ExtResource("12_408pf")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
 [node name="gameover" parent="." instance=ExtResource("10_0mgdl")]
-visible = false
 
 [connection signal="reach_goal" from="Receiver" to="." method="_on_receiver_reach_goal"]
 [connection signal="reach_goal" from="Receiver" to="CanvasLayer/Control2" method="_on_receiver_reach_goal"]
