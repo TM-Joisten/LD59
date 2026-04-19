@@ -1,18 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkcnu0yl2e8hi"]
+[gd_scene load_steps=20 format=3 uid="uid://dkcnu0yl2e8hi"]
 
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_1ohti"]
 [ext_resource type="Script" uid="uid://kt5tw65hdvnu" path="res://script/gameover.gd" id="1_r652g"]
 [ext_resource type="PackedScene" uid="uid://ca210bawifsha" path="res://scene/planet.tscn" id="2_ifsle"]
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="3_ifsle"]
 [ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="5_6tjse"]
+[ext_resource type="Texture2D" uid="uid://csw2ikffb787p" path="res://sprite/satellite2.png" id="5_qxdk8"]
+[ext_resource type="Texture2D" uid="uid://qrgrk1fjqs5f" path="res://sprite/moon.png" id="6_ylu6h"]
+[ext_resource type="Texture2D" uid="uid://uy2qrggq8hwx" path="res://sprite/reciever.png" id="8_lvrms"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mysbu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r652g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylu6h"]
+atlas = ExtResource("5_qxdk8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxdk8"]
+atlas = ExtResource("5_qxdk8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvrms"]
 atlas = ExtResource("3_ifsle")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6tjse"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mh6k"]
 atlas = ExtResource("3_ifsle")
 region = Rect2(16, 0, 16, 16)
 
@@ -20,14 +31,25 @@ region = Rect2(16, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r652g")
+"texture": SubResource("AtlasTexture_ylu6h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6tjse")
+"texture": SubResource("AtlasTexture_qxdk8")
 }],
 "loop": true,
-"name": &"default",
-"speed": 1.0
+"name": &"V2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvrms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mh6k")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="Theme" id="Theme_r652g"]
@@ -43,6 +65,28 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5s2x"]
+atlas = ExtResource("8_lvrms")
+region = Rect2(64, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2feww"]
+atlas = ExtResource("8_lvrms")
+region = Rect2(96, 64, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7742"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5s2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2feww")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -83,16 +127,17 @@ text = "
  GAME OVER"
 
 [node name="Planet" parent="." instance=ExtResource("2_ifsle")]
-position = Vector2(-587, 729)
+position = Vector2(-1719.0001, 3378)
+scale = Vector2(6, 6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(731, -164.00003)
-scale = Vector2(5.1875, 5.1875)
+position = Vector2(1302.0001, -1342.0001)
+rotation = 0.09599311
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_ylu6h")
-autoplay = "default"
-frame = 1
-frame_progress = 1.0
+animation = &"V2"
+autoplay = "V2"
 
 [node name="subtext" type="TextEdit" parent="."]
 texture_filter = 1
@@ -139,8 +184,29 @@ text = "Retry?"
 
 [node name="station" parent="." instance=ExtResource("5_6tjse")]
 texture_filter = 1
-position = Vector2(-608, 35)
-scale = Vector2(4, 4)
+position = Vector2(-1772, -218.00002)
+scale = Vector2(12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1804, -749)
+scale = Vector2(8, 8)
+texture = ExtResource("6_ylu6h")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1364.0002, 849.9999)
+rotation = 1.7540559
+scale = Vector2(30, 30)
+sprite_frames = SubResource("SpriteFrames_ylu6h")
+animation = &"new_animation"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1799, -1390)
+scale = Vector2(4.0156245, 4.0833006)
+sprite_frames = SubResource("SpriteFrames_a7742")
+autoplay = "default"
 
 [connection signal="retry" from="." to="." method="_on_retry"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

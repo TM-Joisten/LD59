@@ -17,11 +17,6 @@ func _ready() -> void:
 	$gameover.hide()
 	# random planet spawning
 	
-# set satellites
- 
-# reach receiver
-# reset player 
-# reset receiver
 
 func _on_receiver_reach_goal() -> void:
 	var planets = get_tree().get_nodes_in_group("planet")
