@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ca210bawifsha" path="res://scene/planet.tscn" id="5_ji1ds"]
 [ext_resource type="PackedScene" uid="uid://d0mswiwelxy7h" path="res://scene/music.tscn" id="6_408pf"]
 [ext_resource type="PackedScene" uid="uid://csubvukg8mp2l" path="res://scene/signal.tscn" id="7_tj6e6"]
-[ext_resource type="PackedScene" uid="uid://cqn5rhnnqyb6a" path="res://scene/beam.tscn" id="8_1owt3"]
 [ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="8_4dgk5"]
 [ext_resource type="PackedScene" uid="uid://88rru1lkr5u1" path="res://scene/UI.tscn" id="9_1owt3"]
 [ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
@@ -50,9 +49,6 @@ position = Vector2(-90, 439)
 [node name="Signal" parent="." instance=ExtResource("7_tj6e6")]
 position = Vector2(605, 306)
 cooldown = 0.3
-
-[node name="beam" parent="Signal" instance=ExtResource("8_1owt3")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

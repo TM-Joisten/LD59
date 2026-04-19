@@ -15,7 +15,6 @@ var area_array = []
 @onready var GOAL: Node2D = $"../Receiver"
 @export var cooldown: float = 1
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var beam: Node2D = $beam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +33,6 @@ func _process(delta: float) -> void:
 			if index == list.find(list.min()):
 				if area_array[index].get_parent() != current_parent:
 					current_parent = area_array[index].get_parent()
-					beam.fire(area_array[index], (self.global_position.x == current_parent.global_position.x), (self.global_position.y == current_parent.global_position.y))
 				else:
 					list[index] += 5000
 		if area_array[list.find(list.min())].get_parent() != current_parent:
