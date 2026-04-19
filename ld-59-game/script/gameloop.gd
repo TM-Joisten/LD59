@@ -8,12 +8,14 @@ extends Node2D
 @export var housecounter = 0
 @export var reset = false
 
+
 # set player
 func _ready() -> void:
 	SIG.position = STATION.position
 	SIG.pressable = true
-	GOAL.change_place()
 	$gameover.hide()
+	# random planet spawning
+	
 # set satellites
  
 # reach receiver
@@ -21,9 +23,15 @@ func _ready() -> void:
 # reset receiver
 
 func _on_receiver_reach_goal() -> void:
+	var planets = get_tree().get_nodes_in_group("planet")
+	print(planets)
+	var p_i = randi() % len(planets)
+	GOAL.Planet = planets[p_i]
+	print(planets[p_i])
 	GOAL.change_place()
 	COUNTER.counter += 15
 	housecounter += 1
+	
 	pass # Replace with function body.
 
 

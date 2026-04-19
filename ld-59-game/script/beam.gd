@@ -3,7 +3,7 @@ extends Node2D
 @onready var sig: Node2D = $Signal
 @onready var sprite: Sprite2D = $NavigationLink2D/PathFollow2D/Sprite2D
 @onready var beam: Node2D = $"."
-@onready var satellite: Node2D = $"../../Satellite"
+#@onready var satellite: Node2D = $"../../Satellite"
 @onready var receiver: Node2D = $"../../Receiver"
 
 var destination = Vector2(0.0, 0.0)

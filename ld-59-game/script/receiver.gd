@@ -5,13 +5,16 @@ var PHI1 = 0
 signal reach_goal
 
 var T = float(Time.get_ticks_msec())/1e3
-@onready var Planet = $/root/state_manager/Planet as Node2D
+@export var Planet = Node2D
 @onready var Sprite: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var Sig = $/root/state_manager/Signal as Node2D #get node of the item "signal"
 @onready var Sig: Node2D = $"../Signal"
 
 func change_place():		#rotates the reciever item
+	print(typeof(Planet))
 	PHI1 = randf_range(3/4*PI,15/4*PI)
+	R = 512*Planet.scale.x
+	print(R)
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	Sprite.rotation = 0
@@ -29,12 +32,15 @@ func _ready() -> void: #used for random position and random house
 	#var animations_off = ["house1off", "house2off", "house3off"]
 	#var random_ani = animations_off[randi() % animations_off.size()]
   	#Sprite.play(random_ani)
-	
 	pass	
 	
 
 
 func _process(float) -> void:
+	if Planet.id() == "Moon" :
+		R = 95*Planet.scale.x 
+		self.global_position.x = Planet.global_position.x + R*cos(PHI1)
+		self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	var animations_on = ["house1on", "house2on", "house3on"]
 	T = float(Time.get_ticks_msec())/1e3
 	if distance() < 1.0:

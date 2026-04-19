@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnl150u78u7hb"]
+
+[ext_resource type="Script" uid="uid://b52gfuwth2sxq" path="res://script/moon.gd" id="1_na40n"]
+[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="2_17wta"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-4, -13)
+script = ExtResource("1_na40n")
+F = -0.5
+R = 4000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_17wta")
