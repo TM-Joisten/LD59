@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkcnu0yl2e8hi"]
+[gd_scene load_steps=12 format=3 uid="uid://dkcnu0yl2e8hi"]
 
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_1ohti"]
 [ext_resource type="Script" uid="uid://kt5tw65hdvnu" path="res://script/gameover.gd" id="1_r652g"]
 [ext_resource type="PackedScene" uid="uid://ca210bawifsha" path="res://scene/planet.tscn" id="2_ifsle"]
 [ext_resource type="Texture2D" uid="uid://d346mpy7vi5st" path="res://sprite/satellite.png" id="3_ifsle"]
+[ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="5_6tjse"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mysbu"]
 
@@ -24,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6tjse")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 1.0
 }]
@@ -89,6 +90,7 @@ texture_filter = 1
 position = Vector2(933.00006, 192)
 scale = Vector2(5.1875, 5.1875)
 sprite_frames = SubResource("SpriteFrames_ylu6h")
+autoplay = "default"
 frame = 1
 frame_progress = 1.0
 
@@ -134,3 +136,8 @@ theme_override_fonts/font = ExtResource("1_1ohti")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_6tjse")
 text = "Retry?"
+
+[node name="station" parent="." instance=ExtResource("5_6tjse")]
+texture_filter = 1
+position = Vector2(111, 141)
+scale = Vector2(4, 4)
