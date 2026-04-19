@@ -48,7 +48,7 @@ func _on_control_2_counter_zero() -> void:
 
 func _on_gameover_retry() -> void:
 	housecounter= 0
-	COUNTER.counter += 100
+	COUNTER.counter = 100
 	MUSIC.get_child(0).set_playing(true)
 	MUSIC.get_child(1).set_playing(false)
 	$CanvasLayer.show()

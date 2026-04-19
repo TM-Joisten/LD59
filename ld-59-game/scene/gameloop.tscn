@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cofn47jcs6cwn" path="res://scene/rangeindicator.tscn" id="8_4dgk5"]
 [ext_resource type="PackedScene" uid="uid://88rru1lkr5u1" path="res://scene/UI.tscn" id="9_1owt3"]
 [ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
-[ext_resource type="PackedScene" path="res://scene/planetindicator.tscn" id="12_408pf"]
+[ext_resource type="PackedScene" uid="uid://drohk50qn3lqe" path="res://scene/planetindicator.tscn" id="12_408pf"]
 [ext_resource type="PackedScene" uid="uid://cnl150u78u7hb" path="res://scene/moon.tscn" id="12_ji1ds"]
 
 [node name="state_manager" type="Node2D"]
