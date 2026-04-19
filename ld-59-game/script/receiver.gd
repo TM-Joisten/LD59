@@ -18,8 +18,14 @@ func change_place():		#rotates the reciever item
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	Sprite.rotation = 0
-
-	Sprite.rotate(get_angle_to(Planet.position)- PI/2)	
+	Sprite.rotate(get_angle_to(Planet.position)- PI/2)
+	
+	randomize()			#randomizez houses
+	var animations_off = ["house1off", "house2off", "house3off"]
+	var random_ani = animations_off[randi() % animations_off.size()]
+	Sprite.play(random_ani)
+	
+	
 	
 func distance() -> float:
 	var sigx = abs(global_position.x - Sig.global_position.x)
@@ -27,11 +33,9 @@ func distance() -> float:
 	return sigx + sigy
 
 func _ready() -> void: #used for random position and random house
-	randomize()
+	
 	change_place()
-	#var animations_off = ["house1off", "house2off", "house3off"]
-	#var random_ani = animations_off[randi() % animations_off.size()]
-  	#Sprite.play(random_ani)
+	
 	pass	
 	
 
@@ -51,4 +55,6 @@ func _process(float) -> void:
 			Sprite.play("house2on")
 		elif Sprite.animation == "house3off":
 			Sprite.play("house3on")
+		
+			
 		

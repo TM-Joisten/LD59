@@ -23,6 +23,7 @@ func _ready() -> void:
 # reset receiver
 
 func _on_receiver_reach_goal() -> void:
+	await get_tree().create_timer(1).timeout
 	var planets = get_tree().get_nodes_in_group("planet")
 	print(planets)
 	var p_i = randi() % len(planets)
