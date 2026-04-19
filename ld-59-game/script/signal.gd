@@ -16,6 +16,7 @@ var area_array = []
 @export var cooldown: float = 1
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var beam: Node2D = $beam
+@onready var audio: AudioStreamPlayer2D = $ AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 			if index == list.find(list.min()):
 				if area_array[index].get_parent() != current_parent:
 					current_parent = area_array[index].get_parent()
+					audio.play()
 					
 				else:
 					list[index] += 5000

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://csubvukg8mp2l"]
+[gd_scene load_steps=5 format=3 uid="uid://csubvukg8mp2l"]
 
 [ext_resource type="Script" uid="uid://utq1x2nppygi" path="res://script/signal.gd" id="1_dqnih"]
 [ext_resource type="Texture2D" uid="uid://dqig7hcutkok2" path="res://sprite/transmission_radius.png" id="2_nlwsf"]
+[ext_resource type="AudioStream" uid="uid://ub82fe0uf0j7" path="res://music/beep.wav" id="3_t6pxd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 313.4087
@@ -24,6 +25,10 @@ shape = SubResource("CircleShape2D_1bvp3")
 zoom = Vector2(0.2, 0.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t6pxd")
+volume_db = 10.172
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
