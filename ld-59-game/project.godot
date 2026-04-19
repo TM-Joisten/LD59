@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD59Game"
-run/main_scene="uid://bdr1d064vux3i"
+run/main_scene="uid://ca10l1tmm8gsh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,3 +28,7 @@ switch={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[rendering]
+
+viewport/hdr_2d=true
