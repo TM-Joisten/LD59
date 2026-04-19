@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkcnu0yl2e8hi"]
+[gd_scene load_steps=21 format=3 uid="uid://dkcnu0yl2e8hi"]
 
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_1ohti"]
 [ext_resource type="Script" uid="uid://kt5tw65hdvnu" path="res://script/gameover.gd" id="1_r652g"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://csw2ikffb787p" path="res://sprite/satellite2.png" id="5_qxdk8"]
 [ext_resource type="Texture2D" uid="uid://qrgrk1fjqs5f" path="res://sprite/moon.png" id="6_ylu6h"]
 [ext_resource type="Texture2D" uid="uid://uy2qrggq8hwx" path="res://sprite/reciever.png" id="8_lvrms"]
+[ext_resource type="Texture2D" uid="uid://djh7m0uu08g2q" path="res://sprite/sun.png" id="9_1mh6k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mysbu"]
 
@@ -207,6 +208,11 @@ position = Vector2(1799, -1390)
 scale = Vector2(4.0156245, 4.0833006)
 sprite_frames = SubResource("SpriteFrames_a7742")
 autoplay = "default"
+
+[node name="sun" type="Sprite2D" parent="."]
+position = Vector2(-2859, 384)
+scale = Vector2(5, 5)
+texture = ExtResource("9_1mh6k")
 
 [connection signal="retry" from="." to="." method="_on_retry"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

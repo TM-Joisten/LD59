@@ -61,5 +61,5 @@ texture = ExtResource("2_75knd")
 
 [node name="sun" type="Sprite2D" parent="Parallaxe/Parallax2D2"]
 z_index = 1
-position = Vector2(648.99994, 334.99997)
+position = Vector2(413.33334, 197.66667)
 texture = ExtResource("6_u71er")
