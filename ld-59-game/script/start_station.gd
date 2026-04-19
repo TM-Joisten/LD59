@@ -8,7 +8,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Sprite.play("signal_on")
-	print(Sprite.animation)
 
 func distance() -> float:
 	if Sig == null:
@@ -18,7 +17,6 @@ func distance() -> float:
 
 
 func _process(delta: float) -> void:
-	#print(distance())
 	if distance() > 1.0:
 		Sprite.play("signal_off")
 	else:

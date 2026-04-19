@@ -193,7 +193,7 @@ text = "Retry?"
 
 [node name="station" parent="." instance=ExtResource("5_6tjse")]
 texture_filter = 1
-position = Vector2(-1772, -218.00002)
+position = Vector2(-1785, -223)
 scale = Vector2(12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
