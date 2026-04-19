@@ -16,9 +16,7 @@ func change_place():		#rotates the reciever item
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	Sprite.rotation = 0
 
-	Sprite.rotate(get_angle_to(Planet.position)- PI/2)
-	print(get_angle_to(Planet.position))
-	
+	Sprite.rotate(get_angle_to(Planet.position)- PI/2)	
 	
 func distance() -> float:
 	var sigx = abs(global_position.x - Sig.global_position.x)
