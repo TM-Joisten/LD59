@@ -61,10 +61,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5s2x"]
 atlas = ExtResource("8_lvrms")
@@ -104,10 +104,10 @@ script = ExtResource("1_r652g")
 [node name="gameovertext" type="TextEdit" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -418.0
-offset_top = -941.0
-offset_right = 401.0
-offset_bottom = -705.0
+offset_left = -605.0
+offset_top = -1425.0
+offset_right = 963.0
+offset_bottom = -1034.0
 theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
 theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
 theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
@@ -121,7 +121,7 @@ theme_override_constants/caret_width = 1
 theme_override_constants/outline_size = 10
 theme_override_constants/line_spacing = 4
 theme_override_fonts/font = ExtResource("1_1ohti")
-theme_override_font_sizes/font_size = 86
+theme_override_font_sizes/font_size = 126
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mysbu")
 text = "
  GAME OVER"
@@ -142,10 +142,10 @@ autoplay = "V2"
 [node name="subtext" type="TextEdit" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -290.0
-offset_top = -808.0
-offset_right = 402.0
-offset_bottom = -487.0
+offset_left = -274.0
+offset_top = -1217.0
+offset_right = 418.0
+offset_bottom = -896.0
 theme_override_colors/search_result_color = Color(0.30153242, 0.30153242, 0.30153242, 0)
 theme_override_colors/search_result_border_color = Color(0, 0, 0, 0)
 theme_override_colors/caret_color = Color(0.8750814, 0.8750814, 0.8750814, 0)
@@ -169,16 +169,16 @@ you reached
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-offset_left = -144.0
-offset_top = -34.0
-offset_right = 132.0
-offset_bottom = 54.0
+offset_left = -307.0
+offset_top = -90.0
+offset_right = 320.0
+offset_bottom = 106.0
 theme = SubResource("Theme_r652g")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
 theme_override_colors/font_pressed_color = Color(0.6156863, 0.75686276, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("1_1ohti")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 86
 theme_override_styles/normal = SubResource("StyleBoxFlat_6tjse")
 text = "Retry?"
 

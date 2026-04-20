@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca10l1tmm8gsh"]
+[gd_scene load_steps=4 format=3 uid="uid://bdr1d064vux3i"]
 
-[ext_resource type="Script" uid="uid://cnphry1qpud6q" path="res://intro.gd" id="1_dlfbb"]
+[ext_resource type="Script" path="res://intro.gd" id="1_dlfbb"]
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="2_srnjo"]
 [ext_resource type="Texture2D" uid="uid://b5k8ca86t15ry" path="res://sprite/intro.png" id="3_lf28b"]
 
