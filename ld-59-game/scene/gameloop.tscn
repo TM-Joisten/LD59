@@ -145,7 +145,6 @@ size_flags_vertical = 0
 [node name="Control4" parent="CanvasLayer" instance=ExtResource("14_4dgk5")]
 
 [node name="planetindicator" type="CanvasLayer" parent="CanvasLayer"]
-visible = false
 
 [node name="Control3" parent="CanvasLayer/planetindicator" instance=ExtResource("12_408pf")]
 anchors_preset = 0

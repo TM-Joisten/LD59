@@ -43,6 +43,7 @@ func _on_receiver_reach_goal() -> void:
 func _on_control_2_counter_zero() -> void:
 	$Signal/Camera2D.position_smoothing_speed = 20
 	$CanvasLayer.hide()
+	$CanvasLayer/planetindicator.hide()
 	GAMEOVER.show()
 	MUSIC.get_child(0).set_playing(false)
 	MUSIC.get_child(1).set_playing(true)
@@ -61,6 +62,7 @@ func _on_gameover_retry() -> void:
 	MUSIC.get_child(0).set_playing(true)
 	MUSIC.get_child(1).set_playing(false)
 	$CanvasLayer.show()
+	
 	$gameover.hide()
 	_ready()  
 
