@@ -74,7 +74,7 @@ func disable_upgrades(upgr_nr, value):
 func _on_upgr_1_pressed() -> void:
 	if cash >= 50:
 		cash -= 50
-		upgr_1.set("disabled", true)
+		upgr_1.set("dis abled", true)
 		wallet.set("text", str(cash)+"$")
 		save_upgrades(0)
 	pass # Replace with function body.
