@@ -12,7 +12,6 @@ var purchases = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(0, 5):
-		print(i, read_upgrades(i))
 		disable_upgrades(i, read_upgrades(i))
 	var money_file = FileAccess.open("res://save/money.txt", FileAccess.READ_WRITE)
 	cash = int(money_file.get_as_text())
@@ -46,7 +45,6 @@ func read_upgrades(upgr_nr: int):
 	return int(purchases)
 
 func disable_upgrades(upgr_nr, value):
-	print(upgr_nr, value)
 	if upgr_nr == 0 and value == 1:
 		upgr_1.set("disabled", true)
 	elif upgr_nr == 0 and value == 0:
@@ -115,4 +113,5 @@ func _on_upgr_5_pressed() -> void:
 		upgr_5.set("disabled", true)
 		wallet.set("text", str(cash)+"$")
 		save_upgrades(4)
+		get_tree().change_scene_to_file("res://scene/game_won.tscn")
 	pass # Replace with function body.

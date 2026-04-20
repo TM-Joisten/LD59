@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfmkco1eu2mdj" path="res://sprite/week_bar.png" id="2_ruddk"]
 
 [node name="days" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

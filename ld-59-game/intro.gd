@@ -4,7 +4,6 @@ extends Node2D
 func _ready() -> void:
 	var money_file = FileAccess.open("res://save/money.txt", FileAccess.WRITE)
 	for i in range(0, 5):
-		print(i)
 		var upgrades_file = FileAccess.open("res://save/upgrades%s.txt" % [i], FileAccess.WRITE)
 	pass # Replace with function body.
 
