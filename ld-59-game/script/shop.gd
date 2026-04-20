@@ -113,4 +113,5 @@ func _on_upgr_5_pressed() -> void:
 		upgr_5.set("disabled", true)
 		wallet.set("text", str(cash)+"$")
 		save_upgrades(4)
+		get_tree().change_scene_to_file("res://scene/game_won.tscn")
 	pass # Replace with function body.

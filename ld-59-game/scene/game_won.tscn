@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0rk3o2qf153d"]
 
-[ext_resource type="Script" uid="uid://doigei3y6cqc0" path="res://scene/game_won.gd" id="1_4nbcf"]
+[ext_resource type="Script" uid="uid://doigei3y6cqc0" path="res://script/game_won.gd" id="1_4nbcf"]
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_qoelr"]
 [ext_resource type="Texture2D" uid="uid://c4l5m712kv4i6" path="res://sprite/endscreen.png" id="2_4nbcf"]
 
@@ -65,7 +65,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("1_qoelr")
 theme_override_font_sizes/font_size = 32
-text = "You have finally got a cabelconnection!"
+text = "You have finally got a cable connection!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
