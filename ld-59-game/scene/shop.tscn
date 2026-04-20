@@ -185,6 +185,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+disabled = true
 text = "50$"
 icon = ExtResource("9_08gde")
 icon_alignment = 1

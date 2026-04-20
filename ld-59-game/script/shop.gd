@@ -12,7 +12,8 @@ var purchases = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(0, 5):
-		disable_upgrades(read_upgrades(i), i)
+		print(i, read_upgrades(i))
+		disable_upgrades(i, read_upgrades(i))
 	var money_file = FileAccess.open("res://save/money.txt", FileAccess.READ_WRITE)
 	cash = int(money_file.get_as_text())
 	wallet.set("text", str(cash)+"$")
@@ -41,10 +42,11 @@ func save_upgrades(upgr_nr: int):
 func read_upgrades(upgr_nr: int):
 	var upgrades_file = FileAccess.open("res://save/upgrades%s.txt" % [upgr_nr], FileAccess.READ)
 	purchases = upgrades_file.get_as_text()
+	upgrades_file.close()
 	return int(purchases)
-	
 
-func disable_upgrades(value, upgr_nr):
+func disable_upgrades(upgr_nr, value):
+	print(upgr_nr, value)
 	if upgr_nr == 0 and value == 1:
 		upgr_1.set("disabled", true)
 	elif upgr_nr == 0 and value == 0:
@@ -53,22 +55,22 @@ func disable_upgrades(value, upgr_nr):
 	if upgr_nr == 1 and value == 1:
 		upgr_2.set("disabled", true)
 	elif upgr_nr == 1 and value == 0:
-		upgr_1.set("disabled", false)
+		upgr_2.set("disabled", false)
 		
 	if upgr_nr == 2 and value == 1:
 		upgr_3.set("disabled", true)
 	elif upgr_nr == 2 and value == 0:
-		upgr_1.set("disabled", false)
+		upgr_3.set("disabled", false)
 		
 	if upgr_nr == 3 and value == 1:
 		upgr_4.set("disabled", true)
 	elif upgr_nr == 3 and value == 0:
-		upgr_1.set("disabled", false)
+		upgr_4.set("disabled", false)
 		
 	if upgr_nr == 4 and value == 1:
 		upgr_5.set("disabled", true)
 	elif upgr_nr == 4 and value == 0:
-		upgr_1.set("disabled", false)
+		upgr_5.set("disabled", false)
 
 
 func _on_upgr_1_pressed() -> void:
