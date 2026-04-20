@@ -11,6 +11,7 @@ extends Node2D
 @export var reset = false
 @onready var days: Control = $CanvasLayer/days
 @onready var money: Control = $CanvasLayer/money
+@onready var prnt: Control = $CanvasLayer/Control4
 
 
 # set player
@@ -33,7 +34,8 @@ func _on_receiver_reach_goal() -> void:
 	housecounter += 1
 	money.cash += 10
 	money._update()
-
+	prnt.counter = COUNTER.counter
+	prnt.reciever_text()
 	pass # Replace with function body.
 
 
