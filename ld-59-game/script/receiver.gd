@@ -11,10 +11,8 @@ var T = float(Time.get_ticks_msec())/1e3
 @onready var Sig: Node2D = $"../Signal"
 
 func change_place():		#rotates the reciever item
-	print(typeof(Planet))
 	PHI1 = randf_range(3/4*PI,15/4*PI)
 	R = 530*Planet.scale.x
-	print(R)
 	self.global_position.x = Planet.global_position.x + R*cos(PHI1)
 	self.global_position.y = Planet.global_position.y + R*sin(PHI1)
 	Sprite.rotation = 0

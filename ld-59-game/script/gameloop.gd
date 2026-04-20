@@ -9,6 +9,8 @@ extends Node2D
 @onready var MUSIC: Node2D = $music
 @export var housecounter = 0
 @export var reset = false
+@onready var days: Control = $CanvasLayer/days
+@onready var money: Control = $CanvasLayer/money
 
 
 # set player
@@ -23,14 +25,15 @@ func _ready() -> void:
 func _on_receiver_reach_goal() -> void:
 	await get_tree().create_timer(1).timeout
 	var planets = get_tree().get_nodes_in_group("planet")
-	print(planets)
 	var p_i = randi() % len(planets)
 	GOAL.Planet = planets[p_i]
 	PLANETINDICATOR.id = GOAL.Planet.id()
 	GOAL.change_place()
 	COUNTER.counter += 15
 	housecounter += 1
-	
+	money.cash += 10
+	money._update()
+
 	pass # Replace with function body.
 
 
@@ -48,7 +51,11 @@ func _on_control_2_counter_zero() -> void:
 
 
 func _on_gameover_retry() -> void:
+<<<<<<< HEAD
 	$Signal/Camera2D.position_smoothing_speed = 10.0
+=======
+	days.set("progress", true)
+>>>>>>> origin
 	housecounter= 0
 	COUNTER.counter = 100
 	MUSIC.get_child(0).set_playing(true)
