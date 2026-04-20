@@ -4,8 +4,8 @@ extends Node2D
 @onready var STATION: Node2D = $station
 @onready var GOAL: Node2D = $Receiver
 @onready var COUNTER: Control = $CanvasLayer/Control2
+@onready var PLANETINDICATOR: Control = $CanvasLayer/planetindicator/Control3
 @onready var GAMEOVER: Control = $gameover
-@onready var PLANETINDICATOR: Control = $CanvasLayer/Control3
 @onready var MUSIC: Node2D = $music
 @export var housecounter = 0
 @export var reset = false
@@ -16,7 +16,7 @@ extends Node2D
 # set player
 func _ready() -> void:
 	for i in range(0,5):
-		enforce_upgrades(read_upgrades(i))
+		enforce_upgrades(i,read_upgrades(i))
 	MUSIC.get_child(0).set_playing(true)
 	SIG.position = STATION.position
 	SIG.pressable = true
@@ -69,16 +69,20 @@ func read_upgrades(upgr_nr: int):
 	var upgrades_file = FileAccess.open("res://save/upgrades%s.txt" % [upgr_nr], FileAccess.READ)
 	var purchases = upgrades_file.get_as_text()
 	return int(purchases)
-	
-func enforce_upgrades(upgr_nr: int):
-	if upgr_nr == 0:
+	 
+func enforce_upgrades(i,upgr_nr: int):
+	if upgr_nr == 1 and i == 0:
+		SIG.set("scale",Vector2(1.3,1.3)) 
+		pass 
+	if upgr_nr == 1 and i == 1:
+		$CanvasLayer/planetindicator.show()
+		pass 
+	if upgr_nr == 1 and i == 2:
+		SIG.cooldown = 0.3
 		pass
-	if upgr_nr == 1:
-		pass
-	if upgr_nr == 2:
-		pass
-	if upgr_nr == 3:
-		pass
-	if upgr_nr == 4:
+	if upgr_nr == 1 and i == 3:		
+		$Satellite3_P1.set("scale",Vector2(2.0,2.0)) 
+		pass  
+	if upgr_nr == 1 and i == 4:
 		pass
 	pass
