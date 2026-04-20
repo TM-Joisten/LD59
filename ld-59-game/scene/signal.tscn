@@ -1,8 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://csubvukg8mp2l"]
+[gd_scene load_steps=8 format=3 uid="uid://csubvukg8mp2l"]
 
 [ext_resource type="Script" uid="uid://utq1x2nppygi" path="res://script/signal.gd" id="1_dqnih"]
 [ext_resource type="Texture2D" uid="uid://dqig7hcutkok2" path="res://sprite/transmission_radius.png" id="2_nlwsf"]
 [ext_resource type="AudioStream" uid="uid://ub82fe0uf0j7" path="res://music/beep.wav" id="3_t6pxd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6pxd"]
+atlas = ExtResource("2_nlwsf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvr33"]
+atlas = ExtResource("2_nlwsf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl4kx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6pxd")
+}],
+"loop": true,
+"name": &"no",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvr33")
+}],
+"loop": true,
+"name": &"yes",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
 radius = 313.4087
@@ -10,11 +37,11 @@ radius = 313.4087
 [node name="Signal" type="Node2D" groups=["signal"]]
 script = ExtResource("1_dqnih")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["satellite"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.1874924, -3.2962837)
-scale = Vector2(37.101563, 37.80602)
-texture = ExtResource("2_nlwsf")
+scale = Vector2(37, 37)
+sprite_frames = SubResource("SpriteFrames_wl4kx")
+animation = &"yes"
 
 [node name="Area2D" type="Area2D" parent="." groups=["satellite"]]
 

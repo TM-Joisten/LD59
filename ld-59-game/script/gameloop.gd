@@ -40,6 +40,7 @@ func _on_receiver_reach_goal() -> void:
 
 
 func _on_control_2_counter_zero() -> void:
+	$Signal/Camera2D.position_smoothing_speed = 20
 	$CanvasLayer.hide()
 	GAMEOVER.show()
 	MUSIC.get_child(0).set_playing(false)
@@ -52,6 +53,7 @@ func _on_control_2_counter_zero() -> void:
 
 
 func _on_gameover_retry() -> void:
+	$Signal/Camera2D.position_smoothing_speed = 10.0
 	days.set("progress", true)
 	housecounter= 0
 	COUNTER.counter = 100

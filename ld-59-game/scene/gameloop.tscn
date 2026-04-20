@@ -94,7 +94,7 @@ position = Vector2(-90, 439)
 [node name="Signal" parent="." instance=ExtResource("7_tj6e6")]
 z_index = 3
 position = Vector2(605, 306)
-cooldown = 0.2
+cooldown = 0.5
 
 [node name="moon" parent="." node_paths=PackedStringArray("Planet") groups=["planet"] instance=ExtResource("12_ji1ds")]
 z_index = -1

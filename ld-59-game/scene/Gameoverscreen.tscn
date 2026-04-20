@@ -209,6 +209,7 @@ rotation = 1.7540559
 scale = Vector2(30, 30)
 sprite_frames = SubResource("SpriteFrames_ylu6h")
 animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
