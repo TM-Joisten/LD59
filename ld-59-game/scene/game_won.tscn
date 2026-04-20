@@ -17,6 +17,7 @@ offset_bottom = 647.0
 size_flags_vertical = 0
 
 [node name="Quit_Game" type="Button" parent="Buttons"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -33,6 +34,7 @@ theme_override_fonts/font = ExtResource("1_qoelr")
 text = "Quit Game"
 
 [node name="Start_Again" type="Button" parent="Buttons"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -49,6 +51,7 @@ theme_override_fonts/font = ExtResource("1_qoelr")
 text = "Start Again"
 
 [node name="Label" type="Label" parent="Buttons"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
