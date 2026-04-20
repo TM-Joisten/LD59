@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwu2dcihhanhk"]
+[gd_scene load_steps=25 format=3 uid="uid://bwrtvhx43e01k"]
 
 [ext_resource type="Script" uid="uid://b17m0kfg13tgy" path="res://script/shop.gd" id="1_4p3p6"]
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_iuafe"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://qrgrk1fjqs5f" path="res://sprite/moon.png" id="4_pd0vs"]
 [ext_resource type="Shader" uid="uid://cpab8gyvb60hs" path="res://sprite/planet.gdshader" id="6_prb2b"]
 [ext_resource type="Texture2D" uid="uid://col0lvxx7vbre" path="res://sprite/planet copy.png" id="7_tartn"]
-[ext_resource type="Texture2D" uid="uid://dqig7hcutkok2" path="res://sprite/transmission_radius.png" id="9_08gde"]
+[ext_resource type="Texture2D" uid="uid://c71igwykyuvfu" path="res://sprite/shop_transmission_radius.png" id="9_oh3n3"]
 [ext_resource type="Texture2D" uid="uid://cretk6bccv33h" path="res://sprite/Planetindicator.png" id="10_mskdj"]
+[ext_resource type="Texture2D" uid="uid://cqioydxxpldqn" path="res://sprite/shop_timerreduce.png" id="11_ayspg"]
+[ext_resource type="Texture2D" uid="uid://c0y2fwct3r3av" path="res://sprite/shop_polarsatellite.png" id="12_dojno"]
+[ext_resource type="Texture2D" uid="uid://dt6802cd2fnh" path="res://sprite/shop_cableconnection.png" id="13_guf26"]
 
 [sub_resource type="Environment" id="Environment_08gde"]
 background_mode = 3
@@ -187,7 +190,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
 disabled = true
 text = "50$"
-icon = ExtResource("9_08gde")
+icon = ExtResource("9_oh3n3")
 icon_alignment = 1
 expand_icon = true
 
@@ -240,6 +243,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
 text = "100$"
+icon = ExtResource("11_ayspg")
 icon_alignment = 1
 expand_icon = true
 
@@ -265,6 +269,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
 text = "150$"
+icon = ExtResource("12_dojno")
 icon_alignment = 1
 expand_icon = true
 
@@ -291,6 +296,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
 text = "500$"
+icon = ExtResource("13_guf26")
 icon_alignment = 1
 expand_icon = true
 
