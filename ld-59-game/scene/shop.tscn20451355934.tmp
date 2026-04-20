@@ -1,0 +1,315 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwu2dcihhanhk"]
+
+[ext_resource type="Script" uid="uid://b17m0kfg13tgy" path="res://script/shop.gd" id="1_4p3p6"]
+[ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_iuafe"]
+[ext_resource type="Texture2D" uid="uid://7wu0i7ikfblg" path="res://sprite/Parallaxe1.png" id="2_0wha2"]
+[ext_resource type="Texture2D" uid="uid://cgevpgjctdiyl" path="res://sprite/planet.png" id="3_brg4d"]
+[ext_resource type="Texture2D" uid="uid://djh7m0uu08g2q" path="res://sprite/sun.png" id="3_pd0vs"]
+[ext_resource type="Texture2D" uid="uid://qrgrk1fjqs5f" path="res://sprite/moon.png" id="4_pd0vs"]
+[ext_resource type="Shader" uid="uid://cpab8gyvb60hs" path="res://sprite/planet.gdshader" id="6_prb2b"]
+[ext_resource type="Texture2D" uid="uid://col0lvxx7vbre" path="res://sprite/planet copy.png" id="7_tartn"]
+[ext_resource type="Texture2D" uid="uid://dqig7hcutkok2" path="res://sprite/transmission_radius.png" id="9_08gde"]
+[ext_resource type="Texture2D" uid="uid://cretk6bccv33h" path="res://sprite/Planetindicator.png" id="10_mskdj"]
+
+[sub_resource type="Environment" id="Environment_08gde"]
+background_mode = 3
+ambient_light_color = Color(0.9999464, 0, 0.021412408, 1)
+glow_enabled = true
+glow_blend_mode = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mskdj"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l5gcb"]
+noise = SubResource("FastNoiseLite_mskdj")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s07y5"]
+shader = ExtResource("6_prb2b")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_l5gcb")
+shader_parameter/density = 1.0
+shader_parameter/speed = Vector2(0.02, 0.01)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p3p6"]
+
+[sub_resource type="Theme" id="Theme_4p3p6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phbgv"]
+bg_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p3p6"]
+bg_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wha2"]
+bg_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyq3k"]
+bg_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prb2b"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_4p3p6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(557, 330)
+texture = ExtResource("2_0wha2")
+
+[node name="sun" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(1.6201918, 1.2839392, 0.8854176, 1)
+position = Vector2(-557, -19)
+texture = ExtResource("3_pd0vs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Sprite2D/sun"]
+environment = SubResource("Environment_08gde")
+
+[node name="clouds" type="Sprite2D" parent="Sprite2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_s07y5")
+position = Vector2(-493, 299)
+rotation = -0.0028761989
+scale = Vector2(5, 5)
+texture = ExtResource("7_tartn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+texture_filter = 1
+position = Vector2(-493, 299.00006)
+scale = Vector2(5.0000005, 5.0000005)
+texture = ExtResource("3_brg4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprite2D2"]
+texture_filter = 1
+position = Vector2(205.59999, -122.59999)
+texture = ExtResource("4_pd0vs")
+
+[node name="Control" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Headline" type="Label" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 0
+offset_left = 315.0
+offset_top = 16.0
+offset_right = 792.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_outline_color = Color(0.06754395, 0.06754395, 0.06754395, 0.8117647)
+theme_override_constants/line_spacing = 4
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4p3p6")
+text = "
+BUY UPGRADES"
+
+[node name="continue" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 427.0
+offset_top = 544.0
+offset_right = 715.0
+offset_bottom = 629.0
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_pressed_color = Color(0.6156863, 0.75686276, 0.7529412, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4p3p6")
+text = "CONTINUE"
+
+[node name="upgr1" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 158.0
+offset_right = 364.0
+offset_bottom = 278.0
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_hover_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+text = "50$"
+icon = ExtResource("9_08gde")
+icon_alignment = 1
+expand_icon = true
+
+[node name="upgr2" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 427.0
+offset_top = 158.0
+offset_right = 727.0
+offset_bottom = 278.0
+grow_horizontal = 2
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_hover_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+text = "100$"
+icon = ExtResource("10_mskdj")
+icon_alignment = 1
+expand_icon = true
+
+[node name="upgr3" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 792.0
+offset_top = 158.0
+offset_right = 1092.0
+offset_bottom = 278.0
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_hover_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+text = "100$"
+icon_alignment = 1
+expand_icon = true
+
+[node name="upgr4" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 243.0
+offset_top = 375.0
+offset_right = 543.0
+offset_bottom = 495.0
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_hover_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+text = "150$"
+icon_alignment = 1
+expand_icon = true
+
+[node name="upgr5" type="Button" parent="Control"]
+z_index = 4
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 606.0
+offset_top = 375.0
+offset_right = 906.0
+offset_bottom = 495.0
+grow_horizontal = 2
+theme = SubResource("Theme_4p3p6")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0.80784315, 1)
+theme_override_colors/font_hover_color = Color(0.19215687, 0.12941177, 0.22352941, 1)
+theme_override_colors/font_outline_color = Color(0.07058824, 0.05490196, 0.12156863, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_phbgv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0wha2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyq3k")
+text = "500$"
+icon_alignment = 1
+expand_icon = true
+
+[node name="wallet" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 177.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.32156864, 0.35686275, 0.5019608, 1)
+theme_override_colors/font_outline_color = Color(0.06754395, 0.06754395, 0.06754395, 0.8117647)
+theme_override_constants/line_spacing = 4
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_iuafe")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prb2b")
+text = "
+ 0$"
+
+[connection signal="pressed" from="Control/continue" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/upgr1" to="." method="_on_upgr_1_pressed"]
+[connection signal="pressed" from="Control/upgr2" to="." method="_on_upgr_2_pressed"]

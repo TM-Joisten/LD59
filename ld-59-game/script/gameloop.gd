@@ -12,9 +12,10 @@ extends Node2D
 @onready var days: Control = $CanvasLayer/days
 @onready var money: Control = $CanvasLayer/money
 
-
 # set player
 func _ready() -> void:
+	for i in range(0,5):
+		enforce_upgrades(read_upgrades(i))
 	MUSIC.get_child(0).set_playing(true)
 	SIG.position = STATION.position
 	SIG.pressable = true
@@ -58,3 +59,22 @@ func _on_gameover_retry() -> void:
 	$CanvasLayer.show()
 	$gameover.hide()
 	_ready()  
+
+
+func read_upgrades(upgr_nr: int):
+	var upgrades_file = FileAccess.open("res://save/upgrades%s.txt" % [upgr_nr], FileAccess.READ)
+	var purchases = upgrades_file.get_as_text()
+	return int(purchases)
+	
+func enforce_upgrades(upgr_nr: int):
+	if upgr_nr == 0:
+		pass
+	if upgr_nr == 1:
+		pass
+	if upgr_nr == 2:
+		pass
+	if upgr_nr == 3:
+		pass
+	if upgr_nr == 4:
+		pass
+	pass
