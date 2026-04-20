@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://0n356ie35tjj"]
+
+[ext_resource type="Script" uid="uid://dde1medo376xx" path="res://script/days.gd" id="1_0vdhw"]
+[ext_resource type="Texture2D" uid="uid://dfmkco1eu2mdj" path="res://sprite/week_bar.png" id="2_ruddk"]
+
+[node name="days" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vdhw")
+
+[node name="bar" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42700002
+anchor_top = 0.042000003
+anchor_right = 0.573
+anchor_bottom = 0.066
+offset_left = -0.40402222
+offset_top = -0.21600151
+offset_right = 0.4039917
+offset_bottom = 0.23199844
+grow_horizontal = 2
+texture = ExtResource("2_ruddk")
+stretch_mode = 2
+
+[node name="highlight" type="ColorRect" parent="bar"]
+top_level = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 15.0
+scale = Vector2(2, 2)
+color = Color(0.38670167, 0.67, 0.27470002, 0.47058824)

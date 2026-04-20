@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://by4ofsaau5m2v"]
+[gd_scene load_steps=15 format=3 uid="uid://by4ofsaau5m2v"]
 
 [ext_resource type="Script" uid="uid://b152oyhjwjby8" path="res://script/gameloop.gd" id="1_b3buy"]
 [ext_resource type="PackedScene" uid="uid://c2k4ahmycjrka" path="res://scene/start_station.tscn" id="2_1owt3"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
 [ext_resource type="PackedScene" uid="uid://drohk50qn3lqe" path="res://scene/planetindicator.tscn" id="12_408pf"]
 [ext_resource type="PackedScene" uid="uid://cnl150u78u7hb" path="res://scene/moon.tscn" id="12_ji1ds"]
+[ext_resource type="PackedScene" uid="uid://0n356ie35tjj" path="res://scene/days.tscn" id="12_tj6e6"]
+[ext_resource type="PackedScene" uid="uid://ddku8bea5lxe7" path="res://scene/money.tscn" id="13_tj6e6"]
 
 [node name="state_manager" type="Node2D"]
 script = ExtResource("1_b3buy")
@@ -117,14 +119,33 @@ metadata/_edit_use_anchors_ = true
 parent = NodePath("../../../Signal")
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource("9_1owt3")]
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 10.0
 
 [node name="Control3" parent="CanvasLayer" instance=ExtResource("12_408pf")]
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 10.0
 offset_bottom = 10.0
+
+[node name="days" parent="CanvasLayer" instance=ExtResource("12_tj6e6")]
+anchors_preset = -1
+anchor_left = 0.323
+anchor_top = 0.040000003
+anchor_right = 0.629
+anchor_bottom = 0.097
+offset_left = 7.9039917
+offset_top = 1.079998
+offset_right = -168.10803
+offset_bottom = -17.356003
+grow_vertical = 1
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="money" parent="CanvasLayer" instance=ExtResource("13_tj6e6")]
 
 [node name="gameover" parent="." instance=ExtResource("10_0mgdl")]
 top_level = true
