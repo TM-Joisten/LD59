@@ -2,7 +2,7 @@ extends Control
 @onready var msg_label: Label = $Label
 @export var counter = 0
 
-var txtGood = ["I'llbe damned, didnt know I could get 4k", "7:1 Lets Gooooo!", "Holy shit is this the Avatar sequel?"]
+var txtGood = ["I'll be damned, didnt know I could get 4k", "7:1 Lets Gooooo!", "Holy shit is this the Avatar sequel?"]
 var txtMed = ["Finally the signal is back","Damn signal, I want to watch National Geographics in high quality!", "Is this some older footage?"]
 var txtBad = ["This is so bad, i know comics with more frames!","I really should've gotten a cabel connection","I should maybe go for a walk today instead"]
 
