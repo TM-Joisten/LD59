@@ -14,7 +14,8 @@ var area_array = []
 @onready var STAT: Node2D = $"../station"
 @onready var GOAL: Node2D = $"../Receiver"
 @export var cooldown: float = 1
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	sprite.rotate(0.01)
+	if pressable == true:
+		sprite.play("yes")
+	else:
+		sprite.play("no")
 	var area_array = self.get_child(1).get_overlapping_areas()
 	if (in_range == true) and (Input.get_action_strength("switch") > 0) and (pressable == true):
 		for element in area_array:            # figure out nearest object
