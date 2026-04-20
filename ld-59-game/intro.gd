@@ -1,8 +1,11 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var money_file = FileAccess.open("res://save/money.txt", FileAccess.WRITE)
+	for i in range(0, 5):
+		print(i)
+		var upgrades_file = FileAccess.open("res://save/upgrades%s.txt" % [i], FileAccess.WRITE)
 	pass # Replace with function body.
 
 
@@ -10,12 +13,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/gameloop.tscn")
-
-
-
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
