@@ -37,13 +37,3 @@ offset_right = 24.0
 offset_bottom = 15.0
 scale = Vector2(2, 2)
 color = Color(0.38670167, 0.67, 0.27470002, 0.47058824)
-
-[node name="highlight2" type="ColorRect" parent="bar"]
-top_level = true
-layout_mode = 0
-offset_left = 244.0
-offset_top = 1.0
-offset_right = 267.0
-offset_bottom = 15.0
-scale = Vector2(2, 2)
-color = Color(0.85, 0.28899997, 0.28899997, 0.47058824)

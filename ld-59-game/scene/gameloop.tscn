@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://dkcnu0yl2e8hi" path="res://scene/Gameoverscreen.tscn" id="10_0mgdl"]
 [ext_resource type="PackedScene" uid="uid://drohk50qn3lqe" path="res://scene/planetindicator.tscn" id="12_408pf"]
 [ext_resource type="PackedScene" uid="uid://cnl150u78u7hb" path="res://scene/moon.tscn" id="12_ji1ds"]
-[ext_resource type="PackedScene" path="res://scene/days.tscn" id="12_tj6e6"]
-[ext_resource type="PackedScene" uid="uid://ddku8bea5lxe7" path="res://scene/money.tscn" id="13_tj6e6"]
-[ext_resource type="PackedScene" path="res://scene/text_on_receive.tscn" id="14_4dgk5"]
+[ext_resource type="PackedScene" uid="uid://0n356ie35tjj" path="res://scene/days.tscn" id="12_tj6e6"]
+[ext_resource type="PackedScene" uid="uid://cuth27a50kyvc" path="res://scene/money.tscn" id="13_tj6e6"]
+[ext_resource type="PackedScene" uid="uid://tbe0c5pjs7t7" path="res://scene/text_on_receive.tscn" id="14_4dgk5"]
 
 [node name="state_manager" type="Node2D"]
 script = ExtResource("1_b3buy")
@@ -145,6 +145,7 @@ size_flags_vertical = 0
 [node name="Control4" parent="CanvasLayer" instance=ExtResource("14_4dgk5")]
 
 [node name="planetindicator" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
 
 [node name="Control3" parent="CanvasLayer/planetindicator" instance=ExtResource("12_408pf")]
 anchors_preset = 0

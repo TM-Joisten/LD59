@@ -1,7 +1,7 @@
 extends Control
 
 @export var counter = 100
-var X = 2.5 # Ticks/s
+var X = 25 # Ticks/s
 var delta_time = 0
 signal counterZERO
 @onready var Textbox = $TextEdit
