@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwrtvhx43e01k"]
+[gd_scene load_steps=26 format=3 uid="uid://bwrtvhx43e01k"]
 
 [ext_resource type="Script" uid="uid://b17m0kfg13tgy" path="res://script/shop.gd" id="1_4p3p6"]
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="1_iuafe"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cqioydxxpldqn" path="res://sprite/shop_timerreduce.png" id="11_ayspg"]
 [ext_resource type="Texture2D" uid="uid://c0y2fwct3r3av" path="res://sprite/shop_polarsatellite.png" id="12_dojno"]
 [ext_resource type="Texture2D" uid="uid://dt6802cd2fnh" path="res://sprite/shop_cableconnection.png" id="13_guf26"]
+[ext_resource type="AudioStream" uid="uid://h15ewy8k5251" path="res://music/LD59song.wav" id="14_ayspg"]
 
 [sub_resource type="Environment" id="Environment_08gde"]
 background_mode = 3
@@ -316,6 +317,10 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_prb2b")
 text = "
  0$"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ayspg")
+autoplay = true
 
 [connection signal="pressed" from="Control/continue" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/upgr1" to="." method="_on_upgr_1_pressed"]

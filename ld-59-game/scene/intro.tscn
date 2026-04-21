@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca10l1tmm8gsh"]
+[gd_scene load_steps=5 format=3 uid="uid://ca10l1tmm8gsh"]
 
 [ext_resource type="Script" uid="uid://cnphry1qpud6q" path="res://intro.gd" id="1_dlfbb"]
 [ext_resource type="FontFile" uid="uid://n03ql4igsawp" path="res://music/Snowbell-Wp4g9.ttf" id="2_srnjo"]
 [ext_resource type="Texture2D" uid="uid://b5k8ca86t15ry" path="res://sprite/intro.png" id="3_lf28b"]
+[ext_resource type="AudioStream" uid="uid://h15ewy8k5251" path="res://music/LD59song.wav" id="4_lf28b"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_dlfbb")
@@ -65,6 +66,10 @@ theme_override_font_sizes/font_size = 32
 text = "I really should've gotten 
 a cabel connection"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lf28b")
+autoplay = true
 
 [connection signal="pressed" from="Button_manager/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button_manager/quit" to="." method="_on_quit_pressed"]
